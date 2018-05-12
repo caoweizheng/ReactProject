@@ -1,0 +1,29 @@
+.car_z{
+    display:flex;
+    flex-direction: column;
+    .header_z{
+        height:40px;
+        border-bottom:1px solid #E8E8E8;
+        i{
+            font-size:16px;
+            float:left;
+            line-height:40px;
+        }
+        .i1{
+            padding-left:10px;
+        }
+        .car_zt{
+            font-size:16px;
+            line-height:40px;
+            float:left;
+            width:330px;
+            text-align:center;
+            color:#252525;
+        }
+    }
+
+    .main_z{
+        flex:1;
+        overflow-x:hidden;
+    }
+}
