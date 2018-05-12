@@ -8,9 +8,11 @@ import HomeComponent from '../components/home/home'
 import CarComponent from '../components/car/car'
 import CategoryComponent from '../components/category/category'
 import MyComponent from '../components/my/my'
+import LoginComponent from '../components/login/login'
 
 
 let routes = (
+	<Route>
 		<Route path="/" component={MainComponent}>
 			<IndexRoute component={HomeComponent}/>
 			<route path="/home" component={HomeComponent}/>
@@ -18,6 +20,9 @@ let routes = (
 			<route path="/category" component={CategoryComponent}/>
 			<route path="/my" component={MyComponent}/>
 		</Route>
+
+		<Route path="/login" component={LoginComponent}></Route>
+	</Route>
 	)
 
 export default routes;

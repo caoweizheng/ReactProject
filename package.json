@@ -1,5 +1,5 @@
 {
-  "name": "react",
+  "name": "ReactProject",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -39,6 +39,7 @@
   "author": "DK.Lan",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
     "element-react": "^1.1.4",
     "element-theme-default": "^1.4.2",

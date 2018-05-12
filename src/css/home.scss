@@ -1,3 +1,280 @@
-.homeBanner_c img{
-	height: 2.4rem
+.homeSearch_c{
+    height: 0.50rem;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    z-index: 100;
+	display:flex;
+	padding: 0.056667rem;
+	background:rgba(0,0,0,0.4);
+	padding: 5px;
+	transition:all 1s;
+	h1{
+		background:#fff;
+		border-radius:0.026667rem;
+		height: 0.32rem;
+		padding: 0.013333rem;
+		margin-right: 0.2rem;
+		img{
+			width: 0.653333rem;
+		}
+	}
+	.search{
+		display:flex;
+		flex:1;
+		position:relative;
+		input[type="text"]{
+			flex:1;
+			height: 0.32rem;
+			background:#fff;
+			border: 0 none;
+			margin-right: 0.066667rem;
+			padding-left: 0.283333rem;
+		}
+		input[type="button"]{
+			height: 0.32rem;
+			border: 0 none;
+			background:none;
+			color:#fff;
+			font-size:0.173333rem;
+		}
+		i{
+			font-size:13px;
+			position:absolute;
+			left: 0.053333rem;
+			top: 20%;
+		}
+	}
+}
+
+.homeBanner_c{
+	.swiper-pagination{
+		font-size:0.293333rem;
+	}
+	img{
+		height: 2.4rem
+	}
+}
+.homeNav_c{
+	ul{
+		width: 100%;
+		display:flex;
+    	flex-wrap: wrap;
+		li{
+		    width: 20%;
+		    text-align: center;
+		    justify-content: center;
+		    img{
+		    	width: 1.0rem;
+		    }
+		}
+	}
+}
+.homeWall_c{
+	display:flex;
+	width: 100%;
+	flex-wrap: wrap;
+	img{
+		height: 1.16rem;
+		flex:0.5;
+		width: 50%;
+	}
+	img:first-child{
+		flex:1;
+		width: 100%;
+		height: 1.16rem;
+	}
+}
+.homeHeadlines_c{
+	display:flex;
+	padding:0.106667rem 0.133333rem;
+	height: 0.48rem;
+	overflow: hidden;
+	background:#fff;
+
+	img{
+		width: 1.106667rem;
+		padding-right: 0.133333rem;
+		border-right:0.013333rem solid #ccc;;
+	}
+	.swiper-container2{
+		flex:1;
+		p{
+			font-size:0.173333rem;
+			line-height: 0.28rem;
+			margin-left: 0.133333rem;
+		}
+	}
+
+}
+.homekillProList{
+	h3{
+		font-size:0.173333rem;
+		padding: 0.133333rem 0;
+		padding-left: 0.066667rem;
+		background:#eee;
+		border-bottom:0.013333rem solid #ccc;
+	}
+	.homekill{
+		padding-left: 0.066667rem;
+		.killimg{
+			width: 1.333333rem;
+		}
+		.killDesc{
+			color: #252525;
+		    height: 0.426667rem;
+		    line-height: 0.223333rem;
+		    overflow: hidden;
+		    font-size: 0.16rem;
+		}
+		.killPrice{
+			height: 0.133333rem;
+			font-size:0.16rem;
+			margin-top:0.083333rem;
+			margin-bottom:0.053333rem;
+			color:red;
+		}
+		.killdel{
+			display:block;
+	  		font-size:0.16rem;
+		}
+	}
+}
+
+.homeGo_c{
+	img{
+		width: 100%;
+	}
+}
+
+.homeSan_c{
+	display:flex;
+    flex-direction: column;
+	flex-wrap: wrap;
+	height: 2.666667rem;
+	margin-top: 0.133333rem;
+    img{
+		width: 50%;
+		height: 49%;
+		border-bottom:1% solid #eee;
+
+    }
+    img:first-child{
+		flex:1;
+		height: 100%;
+		border-right:0.013333rem solid #eee;
+    }
+    img:nth-child(2){
+    	margin-bottom: 0.01667rem;
+    }
+}
+.homeSanlist{
+	img{
+		width: 2.0rem;
+	}
+}
+
+.homeFeatured_c{
+	h3{
+		font-size:0.173333rem;
+		padding: 0.133333rem 0;
+		padding-left: 0.066667rem;
+		background:#eee;
+	}
+	div{
+		display:flex;
+		flex-wrap:wrap;
+		img{
+			width: 33%;
+			height: 50%;
+			flex:1;
+		}
+		img:nth-child(1),img:nth-child(2){
+			width: 50%;
+			height: 1.4rem;
+		}
+		
+	}
+}
+
+.homeTavern_c{
+
+	h3{
+		font-size:0.173333rem;
+		padding: 0.133333rem 0;
+		padding-left: 0.066667rem;
+		background:#eee;
+	}
+	.tavernimg{
+		display:flex;
+	    flex-direction: column;
+		flex-wrap: wrap;
+		height: 2.64rem;
+		width: 100%;
+		position:relative;
+		img:first-child{
+			width: 1.946667rem;
+			height: 100%;
+		}
+		img:nth-child(2){
+			height:50%;
+		}
+		img:nth-child(3){
+			height:50%;
+			width: 25%;
+		}
+		img:nth-child(4){
+			height:50%;
+			width: 25%;
+			position:absolute;
+			top: 50%;
+			left: 70%;
+		}
+	}
+	.swiper-container5{
+		border:0.013333rem solid #eee;
+		img{
+			width: 0.583333rem;
+		}
+	}
+}
+
+.homeRecommend{
+	h3{
+		text-align:center;
+		font-size:0.16rem;
+		border:0.013333rem solid #eee;
+	}
+	div{
+		ul{
+			width: 100%;
+			display:flex;
+			flex-wrap: wrap;
+
+			li{
+				width: 50%;
+				padding: 0.066667rem;
+				img{
+					width: 2.2rem;
+				}
+				.recDesc{
+				    font-size: 0.16rem;
+				    line-height: 0.213333rem;
+				    vertical-align: top;
+				}
+				.recPrice{
+				    font-size: 0.186667rem;
+				    color: #fc5a5a;
+				    font-weight: normal;
+				}
+				.recDel{
+					color: #999;
+				    font-size: 0.16rem;
+				    margin-left: 0.066667rem;
+				}
+			}
+		}
+	}
 }
