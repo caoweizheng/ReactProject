@@ -6,6 +6,7 @@ import MainComponent from '../components/main'
 
 import HomeComponent from '../components/home/home'
 import CarComponent from '../components/car/car'
+import DetailsComponent from '../components/details/details'
 import CategoryComponent from '../components/category/category'
 import MyComponent from '../components/my/my'
 import LoginComponent from '../components/login/login'
@@ -24,6 +25,7 @@ let routes = (
 
 		<Route path="/login" component={LoginComponent}></Route>
 		<Route path="/list" component={ListComponent}></Route>
+		<Route path="/details" component={DetailsComponent}></Route>
 	</Route>
 	)
 
