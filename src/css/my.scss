@@ -1,47 +1,112 @@
 .myTitle{
-    position:fixed;
-    left: 0;
-    top: 0;
-    height: 0.533333rem;
+    height: 2.333333rem;
     background-color: #de4943;
     width: 100%;
     color: #fff;
     display:flex;
     padding: 0 0.133333rem;
-    p{
-
+    div{
+        display:flex;
+        align-self: center;
     	line-height: 0.533333rem;
     	font-size:0.206667rem;
     	flex:1;
     	text-align:center;
+        p{ 
+            line-height: 1.066667rem;
+            margin-left: 0.133333rem;
+            i{
+                font-size:0.16rem;
+            }
+        }
+        .usePic{
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align:center;
+            font-size:0.833333rem;
+            background:#fff;
+            color:red;
+            border-radius:50%;
+        }
     }
 }
-
-.myWall{
-    width: 100%;
-    position:relative;
-    margin-top: 0.533333rem;
-    height: 2.026667rem;
-    img{
-        height: 2.026667rem;
-        position:absolute;
-        left: 0;
-        top: 0;
-    }
-    div{
-        position:relative;
-        z-index:10;
+%order{
+    background:#fff;
+    margin-bottom: 0.133333rem;
+    ul{    
         display:flex;
-        align-items: center;
-        height: 1.066667rem;
-        img{
-            display:block;
-            width: 0.733333rem;
-            height: 0.733333rem;
-            color:red;
+        height: 0.8rem;
+        li{
+            width: 25%;
+            display:flex;
+            flex-direction:column;
+            text-align:center;
+            align-self: center;
+            span{
+                font-size:0.16rem;
+            }
+            i{
+                font-size:0.24rem;
+                margin-bottom: 0.053333rem;
+            }
         }
-        p{
-            font-size:0.173333rem;
+    }
+    p{    
+        display:flex;
+        justify-content: space-between;
+        padding:0.133333rem;
+        border-bottom:0.013333rem solid #ddd;
+        span{
+            font-size:0.193333rem;
+        }
+        span:first-child{
+            font-weight:600;
+        }
+        span:last-child{
+            color:#999;
+            font-size:0.168333rem;
+            i{
+                font-size:0.146667rem;
+            }
+        }
+    }
+}
+.myOrder{
+    
+    @extend %order;
+}
+
+.myMoney{
+    @extend %order;
+    ul{
+        li{
+            i{
+                font-size:0.126667rem;
+                margin-bottom: 0.066667rem;
+            }
+        }
+    }
+}
+.myWall{
+    background:#fff;
+    ul{
+        display:flex;
+        flex-wrap:wrap;
+        height: 150px;
+        li{
+            display:flex;
+            flex-direction:column;
+            text-align:center;
+            align-self:center;
+            width: 25%;  
+            i{
+                font-size:0.333333rem;
+                margin-bottom: 0.103333rem;
+            }
+            span{
+                font-size:0.16rem;
+            }
         }
     }
 }

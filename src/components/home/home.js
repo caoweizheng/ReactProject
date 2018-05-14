@@ -38,22 +38,24 @@ class HomeComponent extends React.Component{
 		http.get('getProduct').then((res) => {
 			     
 			res.data.data.map((item) => {
-				if(item.target_type == '1'){
+				if(item.target_type == 100){
 					this.state.data.banner.push(item)
-				}else if(item.target_type == 2){
+				}else if(item.target_type == 101){
 					this.state.data.nav.push(item)
-				}else if(item.target_type == 8){
+				}else if(item.target_type == 102){
 					this.state.data.wall.push(item)
-				} else if(item.target_type == 9){
+				} else if(item.target_type == 104){
 					this.state.data.killList.push(item)
 				} else if(item.target_type == 10){
 					this.state.data.go.push(item)
 				}else if(item.target_type == 11){
 					this.state.data.homeSan.push(item)
+				}else if(item.target_type == 105){
+					this.state.data.recommend.push(item)
 				}
 			})
-			this.setState({})
-			     
+			
+		    this.setState({})
 		    var mySwiper = new Swiper('.swiper-container', {
 		    	loop:true,
 		       	notNextTick: true,
@@ -69,36 +71,35 @@ class HomeComponent extends React.Component{
 			    }
 			})
 			     
-		})
-	    var mySwiper2 = new Swiper('.swiper-container2', {
-	  		direction:'vertical',
-	  		loop:true,
-	  		autoplay: {
-			    delay: 1500,
-			    stopOnLastSlide: false,
-			    disableOnInteraction: false,
-		    },
-	    	slidesPerView: 1,
-	    	spaceBetween: 30
-		})
+		
+		    var mySwiper2 = new Swiper('.swiper-container2', {
+		  		direction:'vertical',
+		  		loop:true,
+		  		autoplay: {
+				    delay: 1500,
+				    stopOnLastSlide: false,
+				    disableOnInteraction: false,
+			    },
+		    	slidesPerView: 1,
+		    	spaceBetween: 30
+			})
 
 
-	    var mySwiper3 = new Swiper('.swiper-container3', {
-	      direction:'horizontal',
-            	slidesPerView: 4
-		    	// spaceBetween: 30
-		})
+		    var mySwiper3 = new Swiper('.swiper-container3', {
+		      direction:'horizontal',
+	            	slidesPerView: 4,
+			    	spaceBetween: 30
+			})
 
-	    var mySwiper4 = new Swiper('.swiper-container4', {
-	      direction:'horizontal',
-            	slidesPerView: 2.5
+		    var mySwiper4 = new Swiper('.swiper-container4', {
+		      direction:'horizontal',
+	            	slidesPerView: 2.5
+			})
+		    var mySwiper5 = new Swiper('.swiper-container5', {
+		      direction:'horizontal',
+	            	slidesPerView: 5.2
+			})
 		})
-	    var mySwiper5 = new Swiper('.swiper-container5', {
-	      direction:'horizontal',
-            	slidesPerView: 5.2
-		})
-
-		     
 	}
 	render(){
 		return (
@@ -121,7 +122,7 @@ class HomeComponent extends React.Component{
 					          	{
 					          		this.state.data.banner.map((item) => {
 
-					          			return (<div key={item._id} className='swiper-slide'><img src={item.image}/></div>)
+					          			return (<div key={item._id} className='swiper-slide'><img src={item.imgPath}/></div>)
 					          		})
 					          	}
 
@@ -135,7 +136,7 @@ class HomeComponent extends React.Component{
 				    	<ul>
 				    		{
 				    			this.state.data.nav.map((item) => {
-			          				return (<li key={item._id}><img src={item.image}/></li>)
+			          				return (<li key={item._id}><img src={item.imgPath}/></li>)
 				          		})
 							}
 				    	</ul>
@@ -145,13 +146,10 @@ class HomeComponent extends React.Component{
 
 				    	{
 				    		this.state.data.wall.map((item) => {
-		          				return (<img key={item._id} src={item.image}/>)
+		          				return (<img key={item._id} src={item.imgPath}/>)
 			          		})
 				    	}
 
-				    	<img src="https://img10.jiuxian.com/bill/2018/0512/3edea79210ef463bbfd1577330b05876.jpg"/>
-				    	<img src="https://img06.jiuxian.com/bill/2018/0512/f7b1c4b3477f419380aacf2efb7246b1.jpg"/>
-				    	<img src="https://img08.jiuxian.com/bill/2018/0512/afa199b940964f57b018974636c9ac3b.jpg"/>
 				    </div>
 
 
@@ -174,92 +172,20 @@ class HomeComponent extends React.Component{
 				    	<h3>掌上秒拍</h3>
 						<div className='swiper-container3 '>
 							<ul className='swiper-wrapper'>
-					          	{
-					          		this.state.data.killList.map((item) => {
-
+   								{
+					          		this.state.data.killList.map((item) => {					          			     
 					          			return (								
-					          				<li className='swiper-slide'>
+					          				<li key={item._id} className='swiper-slide'>
 												<div className="homekill">
 													<img className="killimg" src={item.imgPath}/>
 													<p className="killDesc">{item.proName}</p>
-													<p className="killPrice">{item.proPrice}</p>
-													<del className="killdel">{item.jxPrice}</del>
+													<p className="killPrice">¥{item.actPrice}.00</p>
+													<del className="killdel">¥{item.jxPrice}.00</del>
 												</div>
 											</li>)
 					          		})
 					          	}
 
-								<li className='swiper-slide'>
-									<div className="homekill">
-										<img className="killimg" src="https://img09.jiuxian.com/2017/0401/dd8144ada3754a368e368b1cf7548ef74.jpg"/>
-										<p className="killDesc">【全网直采特卖】西班牙红酒西班牙奥兰骑士欧瑞安金标干红葡萄酒750ml</p>
-										<p className="killPrice">¥19.00</p>
-										<del className="killdel">¥59.00</del>
-									</div>
-								</li>
-								<li className='swiper-slide'>
-									<div className="homekill">
-										<img className="killimg" src="https://img09.jiuxian.com/2017/0401/dd8144ada3754a368e368b1cf7548ef74.jpg"/>
-										<p className="killDesc">【全网直采特卖】西班牙红酒西班牙奥兰骑士欧瑞安金标干红葡萄酒750ml</p>
-										<p className="killPrice">¥19.00</p>
-										<del className="killdel">¥59.00</del>
-									</div>
-
-								</li>
-								<li className='swiper-slide'>
-									<div className="homekill">
-										<img className="killimg" src="https://img09.jiuxian.com/2017/0401/dd8144ada3754a368e368b1cf7548ef74.jpg"/>
-										<p className="killDesc">【全网直采特卖】西班牙红酒西班牙奥兰骑士欧瑞安金标干红葡萄酒750ml</p>
-										<p className="killPrice">¥19.00</p>
-										<del className="killdel">¥59.00</del>
-									</div>
-
-								</li>
-								<li className='swiper-slide'>
-									<div className="homekill">
-										<img className="killimg" src="https://img09.jiuxian.com/2017/0401/dd8144ada3754a368e368b1cf7548ef74.jpg"/>
-										<p className="killDesc">【全网直采特卖】西班牙红酒西班牙奥兰骑士欧瑞安金标干红葡萄酒750ml</p>
-										<p className="killPrice">¥19.00</p>
-										<del className="killdel">¥59.00</del>
-									</div>
-
-								</li>
-								<li className='swiper-slide'>
-									<div className="homekill">
-										<img className="killimg" src="https://img09.jiuxian.com/2017/0401/dd8144ada3754a368e368b1cf7548ef74.jpg"/>
-										<p className="killDesc">【全网直采特卖】西班牙红酒西班牙奥兰骑士欧瑞安金标干红葡萄酒750ml</p>
-										<p className="killPrice">¥19.00</p>
-										<del className="killdel">¥59.00</del>
-									</div>
-
-								</li>
-								<li className='swiper-slide'>
-									<div className="homekill">
-										<img className="killimg" src="https://img09.jiuxian.com/2017/0401/dd8144ada3754a368e368b1cf7548ef74.jpg"/>
-										<p className="killDesc">【全网直采特卖】西班牙红酒西班牙奥兰骑士欧瑞安金标干红葡萄酒750ml</p>
-										<p className="killPrice">¥19.00</p>
-										<del className="killdel">¥59.00</del>
-									</div>
-
-								</li>
-								<li className='swiper-slide'>
-									<div className="homekill">
-										<img className="killimg" src="https://img09.jiuxian.com/2017/0401/dd8144ada3754a368e368b1cf7548ef74.jpg"/>
-										<p className="killDesc">【全网直采特卖】西班牙红酒西班牙奥兰骑士欧瑞安金标干红葡萄酒750ml</p>
-										<p className="killPrice">¥19.00</p>
-										<del className="killdel">¥59.00</del>
-									</div>
-
-								</li>
-								<li className='swiper-slide'>
-									<div className="homekill">
-										<img className="killimg" src="https://img09.jiuxian.com/2017/0401/dd8144ada3754a368e368b1cf7548ef74.jpg"/>
-										<p className="killDesc">【全网直采特卖】西班牙红酒西班牙奥兰骑士欧瑞安金标干红葡萄酒750ml</p>
-										<p className="killPrice">¥19.00</p>
-										<del className="killdel">¥59.00</del>
-									</div>
-
-								</li>
 							</ul>
 						</div>	
 				    </div>
@@ -477,8 +403,8 @@ class HomeComponent extends React.Component{
 					    				return (<li key={item._id} className='swiper-slide'>
 					    							<img src={item.imgPath} />
 					    							<p className="recDesc">{item.proName}</p>
-					    							<p className="recPrice">{item.proPrice}</p>
-					    							<p className="recDel">{item.jxPrice}</p>
+					    							<p className="recPrice">¥{item.actPrice}.00</p>
+					    							<p className="recDel">¥{item.jxPrice}.00</p>
 					    							<p className="decAD">
 						    							<span>{item.limit}</span>
 						    							<span>{item.gift}</span>
@@ -486,72 +412,6 @@ class HomeComponent extends React.Component{
 				    							</li>)
 					          		})
 				    			}
-				    			<li>
-				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
-
-				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
-				    				<p className="recPrice">¥99.00</p>
-				    				<p className="recDel"><del>¥299.00</del></p>
-				    				<p className="decAD"><span>限时抢购</span><span>满赠</span></p>
-
-				    			</li>
-				    			<li>
-				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
-
-				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
-				    				<p className="recPrice">¥99.00</p>
-				    				<p className="recDel"><del>¥299.00</del></p>
-				    			</li>
-				    			<li>
-				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
-
-				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
-				    				<p className="recPrice">¥99.00</p>
-				    				<p className="recDel"><del>¥299.00</del></p>
-				    			</li>
-				    			<li>
-				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
-
-				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
-				    				<p className="recPrice">¥99.00</p>
-				    				<p className="recDel"><del>¥299.00</del></p>
-				    			</li>
-				    			<li>
-				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
-
-				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
-				    				<p className="recPrice">¥99.00</p>
-				    				<p className="recDel"><del>¥299.00</del></p>
-				    			</li>
-				    			<li>
-				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
-
-				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
-				    				<p className="recPrice">¥99.00</p>
-				    				<p className="recDel"><del>¥299.00</del></p>
-				    			</li>
-				    			<li>
-				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
-
-				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
-				    				<p className="recPrice">¥99.00</p>
-				    				<p className="recDel"><del>¥299.00</del></p>
-				    			</li>
-				    			<li>
-				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
-
-				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
-				    				<p className="recPrice">¥99.00</p>
-				    				<p className="recDel"><del>¥299.00</del></p>
-				    			</li>
-				    			<li>
-				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
-
-				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
-				    				<p className="recPrice">¥99.00</p>
-				    				<p className="recDel"><del>¥299.00</del></p>
-
-				    			</li>
 			    			</ul>
 				    	</div>
 				    </div>

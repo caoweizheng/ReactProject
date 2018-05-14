@@ -11,58 +11,62 @@ class CgoryListComponent extends React.Component{
 	state = {
 		cgoryList:[
 		{
-			img:'fa fa-glass',
-			txt:'白酒'
+			img:'&#xe648;',
+			txt:'白酒',
+			type:2
 		},
 		{
-			img:'fa fa-glass',
-			txt:'葡萄酒'
+			img:'&#xe61d;',
+			txt:'葡萄酒',
+			type:1
 		},
 		{
-			img:'fa fa-beer',
-			txt:'洋酒'
+			img:'&#xe645;',
+			txt:'洋酒',
+			type:3
 		},
 		{
-			img:'fa fa-cube',
+			img:'&#xe7fb;',
 			txt:'整箱购'
 		},
 		{
-			img:'fa fa-glass',
+			img:'&#xe62b;',
 			txt:'老酒'
 		},
 		{
-			img:'fa fa-gavel',
+			img:'&#xe6e5;',
 			txt:'清仓特卖'
 		},
 		{
-			img:'fa fa-plane',
+			img:'&#xe6f2;',
 			txt:'海外直采'
 		},
 		{
-			img:'fa fa-glass',
+			img:'&#xe603;',
 			txt:'精美大坛'
 		},
 		{
-			img:'fa fa-glass',
+			img:'&#xe616;',
 			txt:'红酒整箱'
 		},
 		{
-			img:'fa fa-glass',
+			img:'&#xe62f;',
 			txt:'值得买'
 		},
 		{
-			img:'fa fa-glass',
+			img:'&#xe607;',
 			txt:'销量排行'
 		},
 		{
-			img:'fa fa-gift',
+			img:'&#xe810;',
 			txt:'礼尚往来'
 		}
 		]
 	}
 
-	toList(){
-		         
+	toList(type){
+		this.props.type.props.router.push({pathname:'list',query:{type}})
+		      
 	}
 
 	render(){
@@ -72,7 +76,7 @@ class CgoryListComponent extends React.Component{
 					{
 						this.state.cgoryList.map((item,idx) => {
 
-							return (<li key={idx}><Link to="/list" ><i className={item.img}></i>{item.txt}</Link></li>)
+							return (<li key={idx} onClick={this.toList.bind(this,item.type)}><Link to="" ><i className="iconfont" dangerouslySetInnerHTML ={{__html:item.img}}></i>{item.txt}</Link></li>)
 						})
 					}
 					
@@ -143,13 +147,13 @@ class CategoryComponent extends React.Component{
 		let temp = null;
 
 		if(this.state.isList){
-			temp = <CgoryListComponent />
+			temp = <CgoryListComponent type={this}/>
 		}else{
-			temp = <CgorySearchComponent search="c1"/>
+			temp = <CgorySearchComponent />
 		}
 		return (<div>
 					<div className="cgoryTitle">
-						<i className="fa fa-angle-left" onClick={this.goHome.bind(this)} ></i>
+						<i className="iconfont" onClick={this.goHome.bind(this)} >&#xe635;</i>
 						<p>选酒</p>
 					</div>
 
@@ -164,13 +168,3 @@ class CategoryComponent extends React.Component{
 }
 
 export default CategoryComponent;
-
-/*
-
-<i class="fa fa-cube" aria-hidden="true"></i>
-
-<i class="fa fa-glass" aria-hidden="true"></i>
-
-<i class="fa fa-th-list" aria-hidden="true"></i>
-fa-window-restore
- */

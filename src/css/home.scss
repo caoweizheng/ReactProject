@@ -117,28 +117,35 @@
 		background:#eee;
 		border-bottom:0.013333rem solid #ccc;
 	}
-	.homekill{
-		padding-left: 0.066667rem;
-		.killimg{
-			width: 1.333333rem;
-		}
-		.killDesc{
-			color: #252525;
-		    height: 0.426667rem;
-		    line-height: 0.223333rem;
-		    overflow: hidden;
-		    font-size: 0.16rem;
-		}
-		.killPrice{
-			height: 0.133333rem;
-			font-size:0.16rem;
-			margin-top:0.083333rem;
-			margin-bottom:0.053333rem;
-			color:red;
-		}
-		.killdel{
-			display:block;
-	  		font-size:0.16rem;
+	ul{
+		display:flex;
+		li{
+			width: 25%;
+			.homekill{
+				padding-left: 0.066667rem;
+				.killimg{
+					width: 1.333333rem;
+				}
+				.killDesc{
+					color: #252525;
+				    height: 0.426667rem;
+				    line-height: 0.223333rem;
+				    width: 1.133333rem;
+				    overflow: hidden;
+				    font-size: 0.16rem;
+				}
+				.killPrice{
+					height: 0.133333rem;
+					font-size:0.16rem;
+					margin-top:0.083333rem;
+					margin-bottom:0.053333rem;
+					color:red;
+				}
+				.killdel{
+					display:block;
+			  		font-size:0.16rem;
+				}
+			}
 		}
 	}
 }
@@ -266,7 +273,9 @@
 				}
 				.recDesc{
 				    font-size: 0.16rem;
+				    height: 0.4rem;
 				    line-height: 0.213333rem;
+				    overflow:hidden;
 				    vertical-align: top;
 				    margin-bottom: 0.066667rem;
 				}
@@ -294,7 +303,7 @@
 					    height: 0.223333rem;
 					    line-height: 0.213333rem;
 					    border-radius: 3px;
-					    padding: 0.013333rem 0.04rem;
+					    padding: 0.013333rem 0;
 					    font-size: 0.16rem;
 					    color: #fff;
 					    font-style: normal;

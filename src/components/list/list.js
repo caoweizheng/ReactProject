@@ -2,14 +2,22 @@ import React from 'react'
 
 import '../../css/list.scss'
 
+import http from '../../utils/httpClient.js'
+
+let ListRow = () => {
+	return <i className="iconfont" dangerouslySetInnerHTML ={{__html:'&#xe7f9;'}}></i>
+}
+let ListCol = () => {
+	return <i className="iconfont" dangerouslySetInnerHTML ={{__html:'&#xe619;'}}></i>
+}
+
 class ListComponent extends React.Component{
 
 	state = {
-		goodsList:[]
+		goodsList:[],
+		isRow:true
 	}
-
 	goCateogry(){
-
 		this.props.router.push({pathname:'category'})
 	}
 
@@ -17,10 +25,34 @@ class ListComponent extends React.Component{
  
 		document.querySelector('#list').className = document.querySelector('#list').className == 'goodslistRow' ? 'goodslistCol' : 'goodslistRow';
 
-		document.querySelector('#classify span i').className = document.querySelector('#classify span i').className == 'fa fa-th-list' ? 'fa fa-window-restore' : 'fa fa-th-list';
+		this.setState({isRow:!this.state.isRow})
+
+	}
+
+	componentWillMount(){
+		let type = window.location.hash.split('?')[1].split('=')[1];
+
+		http.get('getProduct').then((res) => {
+			res.data.data.map((item) => {
+   
+				if(item.d_type == type){
+					this.state.goodsList.push(item)
+				}
+			})
+			this.setState({})
+		})
+		     
+		     
 		     
 	}
+
     render(){
+    	let temp = null;
+    	if(this.state.isRow){
+    		temp = <ListRow />
+    	}else{
+    		temp = <ListCol />
+    	}
         return (<div id="listBody">
 					<div className="listTitle">
 						<i className="fa fa-angle-left" onClick={this.goCateogry.bind(this)} ></i>
@@ -32,7 +64,7 @@ class ListComponent extends React.Component{
 							<li><span>综合</span></li>
 							<li><span>销量</span></li>
 							<li><span>价格</span></li>
-							<li id="classify"><span onClick={this.toRow.bind(this)}><i className="fa fa-th-list"></i></span></li>
+							<li id="classify"><span onClick={this.toRow.bind(this)}>{temp}</span></li>
 						</ul>
 					</div>
 
@@ -41,83 +73,23 @@ class ListComponent extends React.Component{
 						<ul>
 							{
 								this.state.goodsList.map((item) => {
+
 									return (
-										<li>
+										<li key={item._id}>
 											<img src={item.imgPath}/>
 											<div>
 												<p className="listDesc">{item.proName}</p>
-												<p className="listDesc">
+												<p className="listAd">
 													<span>{item.limit}</span>
 													<span>{item.gift}</span>
 												</p>
-												<p className="listPrice">{item.proPrice}</p>
-												<p className="listComment">{item.godPresen}%好评{item.godCount}人评论</p>
+												<p className="listPrice">¥ {item.actPrice}.00</p>
+												<p className="listComment"><span className="presen">{item.goodPersen}%好评</span> 	{item.goodCount}人评论</p>
 											</div>
 										</li>
 									)
 								})
 							}
-
-							<li>
-								<img src="https://img07.jiuxian.com/2014/0920/3eee2dc02786464989926cc90ee5c3882.jpg"/>
-
-								<div>
-									<p className="listDesc">52°全兴头曲·金500ml</p>
-									<p className="listAd"><span>满购</span><span>限时抢购</span></p>
-									<p className="listPrice">29.00</p>
-									<p className="listComment">98%好评&nbsp;&nbsp;&nbsp;1253人评论</p>
-								</div>
-							</li>
-							<li>
-								<img src="https://img07.jiuxian.com/2014/0920/3eee2dc02786464989926cc90ee5c3882.jpg"/>
-
-								<div>
-									<p className="listDesc">52°全兴头曲·金500ml</p>
-									<p className="listAd"><span>满购</span><span>限时抢购</span></p>
-									<p className="listPrice">29.00</p>
-									<p className="listComment">98%好评&nbsp;&nbsp;&nbsp;1253人评论</p>
-								</div>
-							</li>
-							<li>
-								<img src="https://img07.jiuxian.com/2014/0920/3eee2dc02786464989926cc90ee5c3882.jpg"/>
-
-								<div>
-									<p className="listDesc">52°全兴头曲·金500ml</p>
-									<p className="listAd"><span>满购</span><span>限时抢购</span></p>
-									<p className="listPrice">29.00</p>
-									<p className="listComment">98%好评&nbsp;&nbsp;&nbsp;1253人评论</p>
-								</div>
-							</li>
-							<li>
-								<img src="https://img07.jiuxian.com/2014/0920/3eee2dc02786464989926cc90ee5c3882.jpg"/>
-
-								<div>
-									<p className="listDesc">52°全兴头曲·金500ml</p>
-									<p className="listAd"><span>满购</span><span>限时抢购</span></p>
-									<p className="listPrice">29.00</p>
-									<p className="listComment">98%好评&nbsp;&nbsp;&nbsp;1253人评论</p>
-								</div>
-							</li>
-							<li>
-								<img src="https://img07.jiuxian.com/2014/0920/3eee2dc02786464989926cc90ee5c3882.jpg"/>
-
-								<div>
-									<p className="listDesc">52°全兴头曲·金500ml</p>
-									<p className="listAd"><span>满购</span><span>限时抢购</span></p>
-									<p className="listPrice">29.00</p>
-									<p className="listComment">98%好评&nbsp;&nbsp;&nbsp;1253人评论</p>
-								</div>
-							</li>
-							<li>
-								<img src="https://img07.jiuxian.com/2014/0920/3eee2dc02786464989926cc90ee5c3882.jpg"/>
-
-								<div>
-									<p className="listDesc">52°全兴头曲·金500ml</p>
-									<p className="listAd"><span>满购</span><span>限时抢购</span></p>
-									<p className="listPrice">29.00</p>
-									<p className="listComment">98%好评&nbsp;&nbsp;&nbsp;1253人评论</p>
-								</div>
-							</li>
 
 						</ul>
 					</div>

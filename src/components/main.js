@@ -71,10 +71,10 @@ class MainComponent extends React.Component{
 				<div id="mainBody" onScroll={this.MainScroll.bind(this)}>{this.props.children}</div>
 				<div id="mianFooter">
 					<ul>
-						<li><Link to="/home"><i className='fa fa-home'></i>首页</Link></li>
-						<li><Link to="/category"><i className='fa fa-window-restore'></i>分类</Link></li>
-						<li><Link to="/car"><i className='fa fa-cart-plus'></i>购物车</Link></li>
-						<li><Link to="/my"><i className='fa fa-user'></i>我的酒仙</Link></li>
+						<li><Link to="/home"><i className="iconfont">&#xe653;</i>首页</Link></li>
+						<li><Link to="/category"><i className="iconfont">&#xe7f9;	</i>分类</Link></li>
+						<li><Link to="/car"><i className="iconfont">&#xe64e;</i>购物车</Link></li>
+						<li><Link to="/my"><i className="iconfont">&#xe612;</i>我的酒仙</Link></li>
 					</ul>
 				</div>
 			</div>)

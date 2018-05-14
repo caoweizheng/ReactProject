@@ -60,6 +60,7 @@
     padding:0.066667rem;
     img{
         width: 1.466667rem;
+        margin-right: 0.133333rem;
     }
 
     div{
@@ -71,15 +72,16 @@
         .listDesc{
             color: #000000;
             font-size: 0.186667rem;
+            height: 0.533333rem;
+            overflow: hidden;
         }
         .listAd{
-            margin-bottom: 0.35rem;
             span{
                 text-align: center;
                 height: 0.223333rem;
                 line-height: 0.213333rem;
                 border-radius: 3px;
-                padding: 0.013333rem 0.04rem;
+                padding: 0.013333rem 0;
                 font-size: 0.16rem;
                 color: #fff;
                 font-style: normal;
@@ -100,6 +102,10 @@
         .listComment{
             font-size:0.16rem;
             color:#aaa;
+            .presen{
+                margin-right: 0.2rem;
+
+            }
         }
     }
 }
