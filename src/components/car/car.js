@@ -4,6 +4,12 @@ import '../../css/car.scss'
 
 class CarComponent extends React.Component{
 
+    state = {
+        data: {
+            car1:[]
+        }
+    }
+
 	render(){
 		return (
             <div className="car_z">
@@ -13,12 +19,19 @@ class CarComponent extends React.Component{
                     <div ><i className="fa fa-bars i2"></i></div>
                 </div>
                 <div className="main_z">
-                    <img src="https://img07.jiuxian.com/bill/2018/0506/9a0c406c6ca3497dac1f05e6b3ab290b.jpg" />
-                    <img src="https://img07.jiuxian.com/bill/2018/0506/9a0c406c6ca3497dac1f05e6b3ab290b.jpg" />
-                    <img src="https://img07.jiuxian.com/bill/2018/0506/9a0c406c6ca3497dac1f05e6b3ab290b.jpg" />
-                    <img src="https://img07.jiuxian.com/bill/2018/0506/9a0c406c6ca3497dac1f05e6b3ab290b.jpg" />
-                    <img src="https://img07.jiuxian.com/bill/2018/0506/9a0c406c6ca3497dac1f05e6b3ab290b.jpg" />
-                    <img src="https://img07.jiuxian.com/bill/2018/0506/9a0c406c6ca3497dac1f05e6b3ab290b.jpg" />
+                    <ul>
+                        {
+                            this.state.data.car1.map((item) => {
+                                return (
+                                    <li key={item._id}>
+                                        <img src={item.image}/>
+                                        <h4>{item.proName}</h4>
+                                        <p>{item.proPrice}</p>
+                                    </li>
+                                )
+                            })
+                        }     
+                    </ul>
                 </div>
             </div>
         )

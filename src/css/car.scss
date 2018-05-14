@@ -1,11 +1,12 @@
 .car_z{
+    height:100%;
     display:flex;
     flex-direction: column;
     .header_z{
         height:40px;
         border-bottom:1px solid #E8E8E8;
         i{
-            font-size:16px;
+            font-size:20px;
             float:left;
             line-height:40px;
         }
@@ -25,5 +26,21 @@
     .main_z{
         flex:1;
         overflow-x:hidden;
+        ul{
+            li{
+                img{
+                    float:left;
+                    display:block;
+                    width:80px;
+                }
+                .main_z1{
+                    float:left;
+                    h4{
+                        font-size:14px;
+                        
+                    }
+                }
+            }
+        }
     }
 }
