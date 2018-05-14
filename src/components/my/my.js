@@ -38,28 +38,52 @@ class MyComponent extends React.Component{
 		}],
 		myWall:[{
 			img:'&#xe609;',
-			txt:'商品收藏'
+			txt:'商品收藏',
+			color:{
+				color:'red'
+			}
 		},{
 			img:'&#xe70f;',
-			txt:'足迹'
+			txt:'足迹',
+			color:{
+				color:'blue'
+			}
 		},{
 			img:'&#xe632;',
-			txt:'会员频道'
+			txt:'会员频道',
+			color:{
+				color:'green'
+			}
 		},{
 			img:'&#xe608;',
-			txt:'商品兑换'
+			txt:'商品兑换',
+			color:{
+				color:'red'
+			}
 		},{
 			img:'&#xe625;',
-			txt:'意见反馈'
+			txt:'意见反馈',
+			color:{
+				color:'blue'
+			}
 		},{
 			img:'&#xe60e;',
-			txt:'客服热线'
+			txt:'客服热线',
+			color:{
+				color:'red'
+			}
 		},{
 			img:'&#xe617;',
-			txt:'招商入驻'
+			txt:'招商入驻',
+			color:{
+				color:'orange'
+			}
 		},{
 			img:'&#xe61e;',
-			txt:'酒快到'
+			txt:'酒快到',
+			color:{
+				color:'red'
+			}
 		}]
 	}
 
@@ -105,7 +129,7 @@ class MyComponent extends React.Component{
 							{
 								this.state.myWall.map((item,idx) => {
 									return (<li key={idx}>
-											<i className="iconfont" dangerouslySetInnerHTML ={{__html:item.img}}></i>
+											<i style={item.color} className="iconfont" dangerouslySetInnerHTML ={{__html:item.img}}></i>
 											<span>{item.txt}</span>
 										</li>)
 								})

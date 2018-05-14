@@ -4,6 +4,8 @@ import '../../css/list.scss'
 
 import http from '../../utils/httpClient.js'
 
+import $ from 'jquery'
+
 let ListRow = () => {
 	return <i className="iconfont" dangerouslySetInnerHTML ={{__html:'&#xe7f9;'}}></i>
 }
@@ -17,10 +19,13 @@ class ListComponent extends React.Component{
 		goodsList:[],
 		isRow:true
 	}
+
+	// 返回分类
 	goCateogry(){
 		this.props.router.push({pathname:'category'})
 	}
 
+	// 切换多行排布
 	toRow(){
  
 		document.querySelector('#list').className = document.querySelector('#list').className == 'goodslistRow' ? 'goodslistCol' : 'goodslistRow';
@@ -39,10 +44,32 @@ class ListComponent extends React.Component{
 					this.state.goodsList.push(item)
 				}
 			})
+			this.sorting('goodPersen')
 			this.setState({})
 		})
+	}
+
+	componentDidMount(){
+		
+		$('.listTab li').eq(0).css({color:'red'})
+		$('.listTab li').click(function(){
+			if($(this).attr('id') == 'classify')return;
+			$(this).css({color:'red'}).siblings('li').css({color:'#000'})
+			     
+		})
 		     
-		     
+	}
+
+	// 排序
+	sorting(type){
+		this.state.goodsList.sort((a,b) =>{
+			if(type == 'actPrice'){
+				return a[type] - b[type]
+			} else{
+				return b[type] - a[type]
+			}
+		})
+		this.setState({})
 		     
 	}
 
@@ -61,9 +88,9 @@ class ListComponent extends React.Component{
 
 					<div className="listTab">
 						<ul>
-							<li><span>综合</span></li>
-							<li><span>销量</span></li>
-							<li><span>价格</span></li>
+							<li><span onClick={this.sorting.bind(this,'goodPersen')}>综合</span></li>
+							<li><span onClick={this.sorting.bind(this,'goodCount')}>销量</span></li>
+							<li><span onClick={this.sorting.bind(this,'actPrice')}>价格</span></li>
 							<li id="classify"><span onClick={this.toRow.bind(this)}>{temp}</span></li>
 						</ul>
 					</div>
