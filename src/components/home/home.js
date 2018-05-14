@@ -29,7 +29,8 @@ class HomeComponent extends React.Component{
 			tavern3:[],
 			tavern3list:[],
 			tavern4:[],
-			tavern4list:[]
+			tavern4list:[],
+			recommend:[]
 		}
 	}
 
@@ -466,16 +467,33 @@ class HomeComponent extends React.Component{
 				    </div>
 
 
+
 				    <div className="homeRecommend">
 				    	<h3>爆款推荐</h3>
 				    	<div>
 				    		<ul>
+				    			{
+					    			this.state.data.recommend.map((item) => {
+					    				return (<li key={item._id} className='swiper-slide'>
+					    							<img src={item.imgPath} />
+					    							<p className="recDesc">{item.proName}</p>
+					    							<p className="recPrice">{item.proPrice}</p>
+					    							<p className="recDel">{item.jxPrice}</p>
+					    							<p className="decAD">
+						    							<span>{item.limit}</span>
+						    							<span>{item.gift}</span>
+					    							</p>
+				    							</li>)
+					          		})
+				    			}
 				    			<li>
 				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
 
 				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
 				    				<p className="recPrice">¥99.00</p>
 				    				<p className="recDel"><del>¥299.00</del></p>
+				    				<p className="decAD"><span>限时抢购</span><span>满赠</span></p>
+
 				    			</li>
 				    			<li>
 				    				<img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg"/>
@@ -532,6 +550,7 @@ class HomeComponent extends React.Component{
 				    				<p className="recDesc">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
 				    				<p className="recPrice">¥99.00</p>
 				    				<p className="recDel"><del>¥299.00</del></p>
+
 				    			</li>
 			    			</ul>
 				    	</div>

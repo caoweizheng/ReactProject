@@ -245,7 +245,8 @@
 	h3{
 		text-align:center;
 		font-size:0.16rem;
-		border:0.013333rem solid #eee;
+		padding: 0.066667rem 0;
+		border-bottom:0.013333rem solid #eee;
 	}
 	div{
 		ul{
@@ -256,6 +257,10 @@
 			li{
 				width: 50%;
 				padding: 0.066667rem;
+				border-bottom:0.013333rem solid #eee;
+				border-right:0.013333rem solid #eee;
+				position:relative;
+				padding-top: 0.266667rem;
 				img{
 					width: 2.2rem;
 				}
@@ -263,17 +268,49 @@
 				    font-size: 0.16rem;
 				    line-height: 0.213333rem;
 				    vertical-align: top;
+				    margin-bottom: 0.066667rem;
 				}
 				.recPrice{
 				    font-size: 0.186667rem;
 				    color: #fc5a5a;
 				    font-weight: normal;
+					float: left;
 				}
 				.recDel{
+					float: left;
 					color: #999;
 				    font-size: 0.16rem;
 				    margin-left: 0.066667rem;
 				}
+				.decAD{
+					position:absolute;
+					left: 0.093333rem;
+					top: 0.066667rem;
+					font-size:0.16rem;
+
+					span{
+						display: block;
+					    text-align: center;
+					    height: 0.223333rem;
+					    line-height: 0.213333rem;
+					    border-radius: 3px;
+					    padding: 0.013333rem 0.04rem;
+					    font-size: 0.16rem;
+					    color: #fff;
+					    font-style: normal;
+					    margin-right: 0.066667rem;
+					    float: left;
+					}
+					span:first-child{
+						background: #ffa855;
+					}
+					span:last-child{
+						background: #5eaffe;
+					}
+				}
+			}
+			li:nth-of-type(2n){
+				border-right:0 none;
 			}
 		}
 	}

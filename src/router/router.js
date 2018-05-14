@@ -9,6 +9,7 @@ import CarComponent from '../components/car/car'
 import CategoryComponent from '../components/category/category'
 import MyComponent from '../components/my/my'
 import LoginComponent from '../components/login/login'
+import ListComponent from '../components/list/list'
 
 
 let routes = (
@@ -22,6 +23,7 @@ let routes = (
 		</Route>
 
 		<Route path="/login" component={LoginComponent}></Route>
+		<Route path="/list" component={ListComponent}></Route>
 	</Route>
 	)
 

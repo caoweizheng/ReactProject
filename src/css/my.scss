@@ -1,0 +1,47 @@
+.myTitle{
+    position:fixed;
+    left: 0;
+    top: 0;
+    height: 0.533333rem;
+    background-color: #de4943;
+    width: 100%;
+    color: #fff;
+    display:flex;
+    padding: 0 0.133333rem;
+    p{
+
+    	line-height: 0.533333rem;
+    	font-size:0.206667rem;
+    	flex:1;
+    	text-align:center;
+    }
+}
+
+.myWall{
+    width: 100%;
+    position:relative;
+    margin-top: 0.533333rem;
+    height: 2.026667rem;
+    img{
+        height: 2.026667rem;
+        position:absolute;
+        left: 0;
+        top: 0;
+    }
+    div{
+        position:relative;
+        z-index:10;
+        display:flex;
+        align-items: center;
+        height: 1.066667rem;
+        img{
+            display:block;
+            width: 0.733333rem;
+            height: 0.733333rem;
+            color:red;
+        }
+        p{
+            font-size:0.173333rem;
+        }
+    }
+}
