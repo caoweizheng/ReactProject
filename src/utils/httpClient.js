@@ -24,6 +24,7 @@ export default {
                 data:_params,
                 headers:{
                     'Content-Type': 'application/x-www-form-urlencoded',
+                    'token':window.localStorage.getItem('user')
                 },
                 transformRequest: [function (data) {
                     let ret = ''
@@ -51,6 +52,7 @@ export default {
                 data:_params,
                 headers:{
                     'Content-Type': 'application/x-www-form-urlencoded',
+                    'token':window.localStorage.getItem('user')
                 },
                 transformRequest: [function (data) {
                     let ret = ''

@@ -5,14 +5,9 @@ import '../../css/details.scss'
 class DetailsComponent extends React.Component{
 
     componentDidMount(){
-<<<<<<< HEAD
-        // let pId = window.location.hash.split('?')[1].split('=')[1];
 
-        // console.log(pId)
-=======
         let pId = this.props.location.query.proId;
         console.log(pId)
->>>>>>> 9e368873d2593e4f7d301f79e95c31f18ec1a203
              
              
     }

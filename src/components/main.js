@@ -10,13 +10,13 @@ import $ from 'jquery'
 
 class MainComponent extends React.Component{
 
+	// 页面刷新时设置底部导航高亮
 	componentDidMount(){
 
-		// console.log('path',this.props.location.pathname)
+	console.log('path',this.props.location.pathname)
 		     
 		let routeStr = window.location.hash;
-		console.log(routeStr)
-		     
+
 		if(routeStr.indexOf('home') > -1 || routeStr == '#/' ){
 			$('#mianFooter li a').eq(0).css({
 				color:'red'
@@ -51,9 +51,28 @@ class MainComponent extends React.Component{
 		})
 		    
 	}
+	scroll(){
+		     
+		let mainBody = document.getElementById('mainBody')
+		mainBody.onscroll = function(){
+				let homeSearch = document.querySelector('.homeSearch_c')
+				     
+				if(homeSearch == null){
+					return;
+				}
+				if(mainBody.scrollTop >= 100){
+					homeSearch.style.backgroundColor = 'rgba(255,0,0,0.8)'
+					     
+				}else{
+					homeSearch.style.backgroundColor = 'rgba(0,0,0,0.4)'
+				}
+			     
+		}
+	}
+
 	render(){
 		return(<div id="mainBox" >
-				<div id="mainBody" >{this.props.children}</div>
+				<div id="mainBody" onScroll={this.scroll.bind(this,event)}>{this.props.children} </div>
 				<div id="mianFooter">
 					<ul>
 						<li><Link to="/home"><i className="iconfont">&#xe653;</i>首页</Link></li>

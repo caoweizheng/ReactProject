@@ -126,13 +126,13 @@ class CategoryComponent extends React.Component{
 
 	goHome(){
 		    
-		this.props.router.push({pathname:'home'})
-		$('#mianFooter a').css({
-			color:'#898989'
-		})
-		$('#mianFooter li a').eq(0).css({
-				color:'red'
-		})
+		this.props.router.go(-1)
+		// $('#mianFooter a').css({
+		// 	color:'#898989'
+		// })
+		// $('#mianFooter li a').eq(0).css({
+		// 		color:'red'
+		// })
 	}
 	// 切换到列表导航
 	isList(){
@@ -152,6 +152,12 @@ class CategoryComponent extends React.Component{
 			return;
 		}
 		this.props.router.push({pathname:'list',query:{keyword:this.state.keyword}}) 	     
+	}
+
+	componentDidMount(){
+		console.log(this.props.location.pathname)
+		     
+		     
 	}
 
 	render(){
