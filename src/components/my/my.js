@@ -87,13 +87,17 @@ class MyComponent extends React.Component{
 		}]
 	}
 
+	toLogin(){
+		this.props.router.push({pathname:'login'})
+	}
+
 	render(){
 		return (<div style={bg}>
 					<div className="myTitle">
 						
 						<div>
 							<i className="iconfont usePic">&#xe612;</i>
-							<p>登录/注册 <i className="iconfont">&#xe636;</i></p>
+							<p onClick={this.toLogin.bind(this)}>登录/注册 <i className="iconfont">&#xe636;</i></p>
 						</div>
 					</div>
 					<div className="myOrder">

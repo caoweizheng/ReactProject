@@ -4,6 +4,13 @@ import '../../css/details.scss'
 
 class DetailsComponent extends React.Component{
 
+    componentDidMount(){
+        let pId = window.location.hash.split('?')[1].split('=')[1];
+
+        console.log(pId)
+             
+             
+    }
     render(){
         return (
             <div className="det">

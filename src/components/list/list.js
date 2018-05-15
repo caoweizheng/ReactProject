@@ -82,7 +82,7 @@ class ListComponent extends React.Component{
     	}
         return (<div id="listBody">
 					<div className="listTitle">
-						<i className="fa fa-angle-left" onClick={this.goCateogry.bind(this)} ></i>
+						<i className="iconfont" onClick={this.goCateogry.bind(this)} >&#xe635;</i>
 						<p>商品列表</p>
 					</div>
 

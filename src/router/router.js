@@ -13,6 +13,7 @@ import LoginComponent from '../components/login/login'
 import ListComponent from '../components/list/list'
 
 
+
 let routes = (
 	<Route>
 		<Route path="/" component={MainComponent}>
@@ -26,6 +27,7 @@ let routes = (
 		<Route path="/login" component={LoginComponent}></Route>
 		<Route path="/list" component={ListComponent}></Route>
 		<Route path="/details" component={DetailsComponent}></Route>
+
 	</Route>
 	)
 

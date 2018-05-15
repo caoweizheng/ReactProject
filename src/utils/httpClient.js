@@ -1,7 +1,9 @@
 import axios from 'axios'
 
-const baseUrl = 'http://10.3.133.83:8888/';
-// const baseUrl = 'http://localhost:8888/';
+// const baseUrl = 'http://10.3.133.83:8888/';
+const baseUrl = 'http://localhost:8888/';
+
+import $ from 'jquery'
 
 let filterUrl = (_url) => {
     if(_url && _url.startsWith('http')){
@@ -14,6 +16,7 @@ import router from '../router/router.js';
 export default {
 
     get(_url, _params = {}){
+        $('.loading_c').css({display:'block'})
         return new Promise((resolve, reject) => {
             axios({
                 method:'get',
@@ -27,7 +30,8 @@ export default {
                     return ret
                 }],
 
-            }).then((res) => {          
+            }).then((res) => {  
+                $('.loading_c').css({display:'none'})        
                 resolve(res)
             }).catch((error) => {
                 reject(error)

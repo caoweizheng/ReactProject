@@ -1,0 +1,37 @@
+.loginUser{
+	position:relative;
+	padding: 20px;
+
+	p{
+
+		border:0.013333rem solid #eee;
+		width: 80%;
+		margin: 0 auto;
+		height: 0.533333rem;
+		display:flex;
+		margin-bottom: 0.266667rem;
+		input{
+			border:0 none;
+			width: 100%;
+			font-size:0.20rem;
+			padding-left: 0.066667rem;
+			color:rgba(0,0,0,0.6);
+		}
+		i{
+			font-size:0.30rem;
+			line-height: 0.533333rem;
+		}
+	}
+
+	.loginNow{
+		display:block;
+		margin: 0 auto;
+		text-align:center;
+		font-size:0.18rem;
+		color:#fff;
+		background:red;
+		width: 60%;
+		border-radius:0.066667rem;
+		padding:0.133333rem;
+	}
+}
