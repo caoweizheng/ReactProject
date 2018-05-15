@@ -26,10 +26,10 @@
     .main_d{
         flex:1;
         overflow-x:hidden;
-        padding:0 10px;
         .main_d1{
             border-bottom:1px solid #F3F5F6;
             padding-bottom:10px;
+            padding:0 10px;
             img{
             width:320px;
             margin-left:18px;
@@ -59,19 +59,90 @@
         }
         .main_d2{
             p{
-                font-size:12px;
+                font-size:14px;
                 line-height:42px;
                 color:#252525;
                 border-bottom:1px solid #E9E9EA;
+                padding:0 10px;
                 span{
-                    padding-left:50px;
+                    padding-left:30px;
                 }
             }
                 
         }
+        .main_d3{
+            p{
+                padding:0 10px;
+            }
+            .p3{
+                font-size:14px;
+                line-height:38px;
+                color:#252525;
+                span{
+                    padding-left:30px;
+                    button{
+                        background:#fff;
+                        border:1px solid #E8E8E8;
+                        height:24px;
+                    }
+                    input{
+                        width:30px;
+                        height:24px;
+                        border:1px solid #E8E8E8;
+                        text-align:center;
+                    }
+                }
+            }
+            .p4{
+                font-size:14px;
+                line-height:30px;
+                color:#252525;
+                span{
+                    padding-left:30px;
+                }
+                i{
+                    padding-left:180px;
+                }
+            }
+            .p5{
+                padding-bottom:15px;
+            }
+            .p6{
+                font-size:14px;
+                background:#F9F9F9;
+                line-height:40px;
+                border-bottom:1px solid #E2E2E2;
+                span{
+                    padding-right:15px;
+                }
+            }
+        }
     }
     .footer_d{
+        background:#FAFAFA;
+        border-top:1px solid #E9E9EA;
         height:46px;
-        background:#58bc58;
+        ul{
+            height:46px;
+            li{
+                width:63px;
+                height:46px;
+                float:left;
+                border-right:1px solid #E9E9EA;
+                position:relative;
+                i{
+                    font-size:16px;
+                    position:absolute;
+                    left:20px;
+                    top:5px;
+                }
+                span{
+                    font-size:12px;
+                    line-height:20px;
+                    color:#484848;
+                    text-align:center;
+                }
+            }
+        }
     }
 }

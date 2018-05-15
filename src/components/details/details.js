@@ -26,12 +26,36 @@ class DetailsComponent extends React.Component{
                     </div>
 
                     <div className="main_d3">
-                        <p>数量<button>-</button><input type="number" value="1" /><button>+</button></p>
+                        <p className="p3">数量
+                            <span>
+                                <button>-</button>
+                                <input type="number" value="1" />
+                                <button>+</button>
+                            </span>
+                        </p>
+                        <p className="p4">送至<span>广东省 广州市</span><i className="fa fa-angle-right"></i></p>
+                        <p className="p4 p5">提示<span>此商品不能使用优惠卷</span></p>
+                        <p className="p6"><i></i><span>正品保障</span><i></i><span>满100包邮</span><i></i><span>7天退换</span></p>
                     </div>
+
+                    <div><img src="../../img/details1.png" /></div>
                 </div>
 
                 <div className="footer_d">
-                    
+                    <ul>
+                        <li>
+                            <p><i className="fa fa-user"></i>
+                            <span>侍酒师</span></p>
+                        </li>
+                        <li>
+                            <p><i className="fa fa-heart-o"></i>
+                            <span>收藏</span></p>
+                        </li>
+                        <li>
+                            <p><i className="fa fa-cart-plus"></i>
+                            <span>购物车</span></p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         )
