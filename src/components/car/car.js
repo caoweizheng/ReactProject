@@ -13,25 +13,78 @@ class CarComponent extends React.Component{
 	render(){
 		return (
             <div className="car_z">
+
                 <div className="header_z">
-                    <div><i className="fa fa-angle-left i1"></i></div>
+                    <div><i className="iconfont i1">&#xe635;</i></div>
                     <div className="car_zt">购物车</div>
-                    <div ><i className="fa fa-bars i2"></i></div>
+                    <div ><i className="iconfont i2">&#xe61a;</i></div>
                 </div>
+
                 <div className="main_z">
                     <ul>
-                        {
-                            this.state.data.car1.map((item) => {
-                                return (
-                                    <li key={item._id}>
-                                        <img src={item.image}/>
-                                        <h4>{item.proName}</h4>
-                                        <p>{item.proPrice}</p>
-                                    </li>
-                                )
-                            })
-                        }     
+                        <li>
+                            <img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg" />
+                            <h4>【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</h4>
+                            <p><span>￥248.00</span></p>
+                            <p>
+                                <button>-</button>
+                                <input type="number" value="1" />
+                                <button>+</button>
+                                <span className="del">删除</span>
+                            </p>
+                        </li>
+                        <li>
+                            <img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg" />
+                            <h4>【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</h4>
+                            <p><span>￥248.00</span></p>
+                            <p>
+                                <button>-</button>
+                                <input type="number" value="1" />
+                                <button>+</button>
+                                <span className="del">删除</span>
+                            </p>
+                        </li>
+                        <li>
+                            <img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg" />
+                            <h4>【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</h4>
+                            <p><span>￥248.00</span></p>
+                            <p>
+                                <button>-</button>
+                                <input type="number" value="1" />
+                                <button>+</button>
+                                <span className="del">删除</span>
+                            </p>
+                        </li>
+                        <li>
+                            <img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg" />
+                            <h4>【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</h4>
+                            <p><span>￥248.00</span></p>
+                            <p>
+                                <button>-</button>
+                                <input type="number" value="1" />
+                                <button>+</button>
+                                <span className="del">删除</span>
+                            </p>
+                        </li>
+                        <li>
+                            <img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg" />
+                            <h4>【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</h4>
+                            <p><span>￥248.00</span></p>
+                            <p>
+                                <button>-</button>
+                                <input type="number" value="1" />
+                                <button>+</button>
+                                <span className="del">删除</span>
+                            </p>
+                        </li>
                     </ul>
+                </div>
+
+                <div className="footer_z">
+                    <p>
+                        合计：<span>￥457.00</span>
+                        <button>去结算</button>
+                    </p>
                 </div>
             </div>
         )
