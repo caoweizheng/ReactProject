@@ -5,9 +5,14 @@ import '../../css/details.scss'
 class DetailsComponent extends React.Component{
 
     componentDidMount(){
+<<<<<<< HEAD
         // let pId = window.location.hash.split('?')[1].split('=')[1];
 
         // console.log(pId)
+=======
+        let pId = this.props.location.query.proId;
+        console.log(pId)
+>>>>>>> 9e368873d2593e4f7d301f79e95c31f18ec1a203
              
              
     }
@@ -15,9 +20,9 @@ class DetailsComponent extends React.Component{
         return (
             <div className="det">
                 <div className="header_d">
-                    <div><i className="fa fa-angle-left i3"></i></div>
+                    <div><i className="iconfont i3">&#xe635;</i></div>
                     <div className="header_d1">商品详情</div>
-                    <div><i className="fa fa-bars"></i></div>
+                    <div><i className="iconfont">&#xe61a;</i></div>
                 </div>
 
                 <div className="main_d">
@@ -33,12 +38,39 @@ class DetailsComponent extends React.Component{
                     </div>
 
                     <div className="main_d3">
-                        <p>数量<button>-</button><input type="number" value="1" /><button>+</button></p>
+                        <p className="p3">数量
+                            <span>
+                                <button>-</button>
+                                <input type="number" value="1" />
+                                <button>+</button>
+                            </span>
+                        </p>
+                        <p className="p4">送至<span>广东省 广州市</span><i className="iconfont">&#xe636;</i></p>
+                        <p className="p4 p5">提示<span>此商品不能使用优惠卷</span></p>
+                        <p className="p6"><i></i><span>正品保障</span><i></i><span>满100包邮</span><i></i><span>7天退换</span></p>
                     </div>
+
+                    <div><img src="./src/assets/details1.png" /></div>
                 </div>
 
                 <div className="footer_d">
-                    
+                    <ul>
+                        <li>
+                            <i className="iconfont">&#xe612;</i>
+                            <p>侍酒师</p>
+                        </li>
+                        <li>
+                            <i className="iconfont">&#xe690;</i>
+                            <p>收藏</p>
+                        </li>
+                        <li>
+                            <i className="iconfont">&#xe64e;</i>
+                            <p>购物车</p>
+                        </li>
+                    </ul>
+
+                    <button className="btn1">加入购物车</button>
+                    <button className="btn2">立即购买</button>
                 </div>
             </div>
         )
