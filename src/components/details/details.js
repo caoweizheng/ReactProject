@@ -23,6 +23,9 @@ class DetailsComponent extends React.Component{
             console.log(this.state.goodsData)
                      
         })       
+             
+             
+
     }
 
     

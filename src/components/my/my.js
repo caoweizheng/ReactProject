@@ -2,13 +2,58 @@ import React from 'react'
 
 import '../../css/my.scss'
 
+import http from '../../utils/httpClient.js'
+
 let bg = {
 	background:'#eee'
 }
+let fontsize = {
+	fontSize:'0.28rem',
+	color:'#000'
+}
+let color = {
+	color:'#000'
+}
+class NoLoginComponent extends React.Component{
 
+	toLogin(){
+		console.log(this.props.nologin.props.router.push({pathname:'login'}))    
+	}
+
+	render(){
+		return(<div className="myTitle">
+					<div>
+						<i  className="iconfont usePic">&#xe612;</i>
+						<p onClick={this.toLogin.bind(this)}>登录/注册 <i className="iconfont">&#xe636;</i></p>
+					</div>
+				</div>)
+	}
+}
+class IsLoginComponent extends React.Component{
+
+	state = {
+		username:''
+	}
+
+	setUserName(name){
+		console.log(name)
+		     
+		this.setState({username:name})
+	}
+
+	render(){
+		return(<div className="myTitle" style={bg}>
+				<div>
+					<i style={color} className="iconfont usePic"><img src="https://misc.jiuxian.com/m_user/images/usercenter/userPhoto.png"/></i>
+					<p style={fontsize}>{this.state.username}</p>
+				</div>
+			</div>)
+	}
+}
 class MyComponent extends React.Component{
 
 	state ={
+		isLogin:false,
 		order:[
 		{
 			img:'&#xe60a;',
@@ -87,19 +132,33 @@ class MyComponent extends React.Component{
 		}]
 	}
 
-	toLogin(){
-		this.props.router.push({pathname:'login'})
+	componentDidMount(){
+
+		http.get('loginState').then((res) => {
+			console.log('res-----------',res.data.data.phone)
+			if(res.data.state){
+				this.setState({isLogin:true})
+				this.refs.islogin.setUserName(res.data.data.phone)
+				     
+			}
+		})
+
+		let loginState = window.localStorage.getItem('user');
 	}
 
 	render(){
+		let temp = null;
+
+		if(this.state.isLogin){
+			temp = <IsLoginComponent ref="islogin" islogin={this}/>
+		}else{
+			temp = <NoLoginComponent nologin={this}/>
+		}
+
 		return (<div style={bg}>
-					<div className="myTitle">
+					
 						
-						<div>
-							<i className="iconfont usePic">&#xe612;</i>
-							<p onClick={this.toLogin.bind(this)}>登录/注册 <i className="iconfont">&#xe636;</i></p>
-						</div>
-					</div>
+					{temp}
 					<div className="myOrder">
 						<p><span>我的订单</span><span>查看全部订单 <i className="iconfont">&#xe636;</i></span></p>
 						<ul>

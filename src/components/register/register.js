@@ -4,7 +4,7 @@ import '../../css/login.scss'
 
 import http from '../../utils/httpClient.js'
 
-class LoginComponent extends React.Component{
+class RegisterComponent extends React.Component{
 
 	state = {
 		phone:'',
@@ -22,30 +22,24 @@ class LoginComponent extends React.Component{
 		this.setState({pass:e.target.value})
 	}
 
-	login(){
-		console.log(666)
+	register(){
 		     
-		http.post('userlogin',{phone:this.state.phone,password:this.state.pass}).then((res) => {
+		http.post('userRegister',{phone:this.state.phone,password:this.state.pass}).then((res) => {
 			console.log(res)
 
 			 if(res.data.state){
-			 	window.localStorage.setItem('user',res.data.data)
-			 	this.props.router.push({pathname:'my'})
+			 	this.props.router.push({pathname:'login'})
 			 	     
 			 }
 		})
 
 	}
 
-	toRegister(){
-		this.props.router.push({pathname:'register'})
-	}
-
 	render(){
 		return (<div>
 					<div className="cgoryTitle">
 						<i className="iconfont" onClick={this.goMy.bind(this)} >&#xe635;</i>
-						<p>用户登录</p>
+						<p>用户注册</p>
 					</div>
 
 					<div className="loginUser">
@@ -57,11 +51,10 @@ class LoginComponent extends React.Component{
 							<i className="iconfont">&#xe63e;</i>
 							<input type="password" placeholder="密码" value={this.state.pass} onChange={this.pchange.bind(this)}/>
 						</p>
-						<span className="loginNow" onClick={this.login.bind(this)}>立即登录</span>
-						<div className="forget"><span onClick={this.toRegister.bind(this)}>立即注册</span><span>忘记密码</span></div>
+						<span className="loginNow" onClick={this.register.bind(this)}>立即注册</span>
 					</div>
 			</div>)
 	}
 }
 
-export default LoginComponent;
+export default RegisterComponent;

@@ -103,7 +103,7 @@ class HomeComponent extends React.Component{
 		})
 	}
 
-	toDetals(pid){
+	toDetails(pid){
 		this.props.router.push({pathname:'details',query:{
 			proId:pid
 		}})
@@ -193,7 +193,7 @@ class HomeComponent extends React.Component{
    								{
 					          		this.state.data.killList.map((item) => {					          			     
 					          			return (								
-					          				<li key={item._id} className='swiper-slide' onClick={this.toDetals.bind(this,item._id)}>
+					          				<li key={item._id} className='swiper-slide' onClick={this.toDetails.bind(this,item._id)}>
 												<div className="homekill">
 													<img className="killimg" src={item.imgPath}/>
 													<p className="killDesc">{item.proName}</p>
@@ -418,7 +418,7 @@ class HomeComponent extends React.Component{
 				    		<ul>
 				    			{
 					    			this.state.data.recommend.map((item) => {
-					    				return (<li key={item._id} className='swiper-slide'>
+					    				return (<li key={item._id} className='swiper-slide' onClick={this.toDetails.bind(this,item._id)}>
 					    							<img src={item.imgPath} />
 					    							<p className="recDesc">{item.proName}</p>
 					    							<p className="recPrice">¥{item.actPrice}.00</p>

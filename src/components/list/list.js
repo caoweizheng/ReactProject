@@ -22,7 +22,8 @@ class ListComponent extends React.Component{
 
 	// 返回分类
 	goCateogry(){
-		this.props.router.push({pathname:'category'})
+		this.props.router.go(-1)
+		// this.props.router.push({pathname:'category'})
 	}
 
 	// 切换多行排布
