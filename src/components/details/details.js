@@ -1,31 +1,62 @@
 import React from 'react'
 
 import '../../css/details.scss'
+import http from '../../utils/httpClient.js'
+
 
 class DetailsComponent extends React.Component{
+
+    state = {
+        goodsData:[]
+    }
 
     componentDidMount(){
 
         let pId = this.props.location.query.proId;
         console.log(pId)
+
+        http.post('detilsPro',{proId:pId}).then((res) => {
+            this.state.goodsData.push(res.data.data[0])
+
+            this.setState({})
+
+            console.log(this.state.goodsData)
+                     
+        })       
              
              
+
     }
+
+    
+
+    // routerBack(){
+    //     this.$router.go(-1);
+    // }
+
     render(){
         return (
             <div className="det">
                 <div className="header_d">
-                    <div><i className="iconfont i3">&#xe635;</i></div>
+                <div><i className="iconfont i3">&#xe635;</i></div>
                     <div className="header_d1">商品详情</div>
                     <div><i className="iconfont">&#xe61a;</i></div>
                 </div>
 
                 <div className="main_d">
-                    <div className="main_d1">
-                        <img src="http://img08.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf5.jpg"/>
-                        <p className="p1">【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</p>
-                        <p className="p2">￥<span>248.00</span><del>酒仙价:269.00</del></p>
-                    </div>
+                    {
+                        this.state.goodsData.map((item,idx) => {
+
+                            return (
+                                <div className="main_d1" key={idx}>
+                                    <img src={item.imgPath}/>
+                                    <p className="p1">{item.proName}</p>
+                                    <p className="p2">￥<span>{item.actPrice}</span><del>酒仙价:{item.jxPrice}</del></p>
+                                </div>
+                            )
+                        })
+                    }
+
 
                     <div className="main_d2">
                         <p>优惠<span>品质红酒节满399元送嘉年华酒架</span></p>
@@ -33,13 +64,6 @@ class DetailsComponent extends React.Component{
                     </div>
 
                     <div className="main_d3">
-                        <p className="p3">数量
-                            <span>
-                                <button>-</button>
-                                <input type="number" value="1" />
-                                <button>+</button>
-                            </span>
-                        </p>
                         <p className="p4">送至<span>广东省 广州市</span><i className="iconfont">&#xe636;</i></p>
                         <p className="p4 p5">提示<span>此商品不能使用优惠卷</span></p>
                         <p className="p6"><i></i><span>正品保障</span><i></i><span>满100包邮</span><i></i><span>7天退换</span></p>

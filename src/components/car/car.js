@@ -1,6 +1,7 @@
 import React from 'react'
 
 import '../../css/car.scss'
+import $ from 'jquery'
 
 class CarComponent extends React.Component{
 
@@ -9,6 +10,16 @@ class CarComponent extends React.Component{
             car1:[]
         }
     }
+
+    change = (e) => {
+        this.setState({text: e.target.value})
+    }
+
+    // $(document).ready(function(){
+    //     $(".add").click(function(){
+    //         $({this.state.text}) + 1;
+    //     })
+    // })
 
 	render(){
 		return (
@@ -27,8 +38,19 @@ class CarComponent extends React.Component{
                             <h4>【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</h4>
                             <p><span>￥248.00</span></p>
                             <p>
+                                <button className="sub">-</button>
+                                <input type="number" value={this.state.text} onChange={this.change} />
+                                <button className="add">+</button>
+                                <span className="del">删除</span>
+                            </p>
+                        </li>
+                        <li>
+                            <img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg" />
+                            <h4>【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</h4>
+                            <p><span>￥248.00</span></p>
+                            <p>
                                 <button>-</button>
-                                <input type="number" value="1" />
+                                <input type="number" value={this.state.text} onChange={this.change} />
                                 <button>+</button>
                                 <span className="del">删除</span>
                             </p>
@@ -39,7 +61,7 @@ class CarComponent extends React.Component{
                             <p><span>￥248.00</span></p>
                             <p>
                                 <button>-</button>
-                                <input type="number" value="1" />
+                                <input type="number" value={this.state.text} onChange={this.change} />
                                 <button>+</button>
                                 <span className="del">删除</span>
                             </p>
@@ -50,7 +72,7 @@ class CarComponent extends React.Component{
                             <p><span>￥248.00</span></p>
                             <p>
                                 <button>-</button>
-                                <input type="number" value="1" />
+                                <input type="number" value={this.state.text} onChange={this.change} />
                                 <button>+</button>
                                 <span className="del">删除</span>
                             </p>
@@ -61,18 +83,7 @@ class CarComponent extends React.Component{
                             <p><span>￥248.00</span></p>
                             <p>
                                 <button>-</button>
-                                <input type="number" value="1" />
-                                <button>+</button>
-                                <span className="del">删除</span>
-                            </p>
-                        </li>
-                        <li>
-                            <img src="https://img09.jiuxian.com/2017/0204/27f56db1e8454318a780458006426bcf4.jpg" />
-                            <h4>【品质红酒节】澳洲整箱红酒黄尾袋鼠西拉红葡萄酒（6瓶装）</h4>
-                            <p><span>￥248.00</span></p>
-                            <p>
-                                <button>-</button>
-                                <input type="number" value="1" />
+                                <input type="number" value={this.state.text} onChange={this.change} />
                                 <button>+</button>
                                 <span className="del">删除</span>
                             </p>
