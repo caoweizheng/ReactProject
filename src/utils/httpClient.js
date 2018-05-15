@@ -22,6 +22,9 @@ export default {
                 method:'get',
                 url:filterUrl(_url),
                 data:_params,
+                headers:{
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
                 transformRequest: [function (data) {
                     let ret = ''
                     for (let it in data) {

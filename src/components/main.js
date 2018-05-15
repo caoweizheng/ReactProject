@@ -6,29 +6,14 @@ import '../css/main.scss'
 
 import $ from 'jquery'
 
+
+
 class MainComponent extends React.Component{
 
-	MainScroll(){
-
-		let Mainbody = document.getElementById('mainBody') 
-		let homeSearch = document.querySelector('.homeSearch_c')
-		Mainbody.onscroll = function(){
-			if(homeSearch == null){
-				return;
-			}
-			if(Mainbody.scrollTop >= 100){
-				homeSearch.style.backgroundColor = 'rgba(255,0,0,0.8)'
-				     
-			}else{
-				homeSearch.style.backgroundColor = 'rgba(0,0,0,0.4)'
-			}
-			     
-		}
-		     
-	}
-
-
 	componentDidMount(){
+
+		// console.log('path',this.props.location.pathname)
+		     
 		let routeStr = window.location.hash;
 		console.log(routeStr)
 		     
@@ -67,8 +52,8 @@ class MainComponent extends React.Component{
 		    
 	}
 	render(){
-		return(<div id="mainBox">
-				<div id="mainBody" onScroll={this.MainScroll.bind(this)}>{this.props.children}</div>
+		return(<div id="mainBox" >
+				<div id="mainBody" >{this.props.children}</div>
 				<div id="mianFooter">
 					<ul>
 						<li><Link to="/home"><i className="iconfont">&#xe653;</i>首页</Link></li>
@@ -80,5 +65,17 @@ class MainComponent extends React.Component{
 			</div>)
 	}
 }
-
+window.onscroll = function(){
+		let homeSearch = document.querySelector('.homeSearch_c')
+		if(homeSearch == null){
+			return;
+		}
+		if(window.scrollY >= 100){
+			homeSearch.style.backgroundColor = 'rgba(255,0,0,0.8)'
+			     
+		}else{
+			homeSearch.style.backgroundColor = 'rgba(0,0,0,0.4)'
+		}
+	     
+}
 export default MainComponent;

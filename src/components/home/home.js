@@ -14,6 +14,7 @@ import $ from 'jquery'
 class HomeComponent extends React.Component{
 
 	state = {
+		keyword:'',
 		data:{
 			banner:[],
 			nav:[],
@@ -108,14 +109,24 @@ class HomeComponent extends React.Component{
 		}})
 		     
 	}
+
+	change(e){
+		this.setState({keyword:e.target.value})
+	}
+	search(){
+		if(this.state.keyword == ''){
+			return;
+		}
+		this.props.router.push({pathname:'list',query:{keyword:this.state.keyword}}) 
+	}
 	render(){
 		return (
 				<div>
 					<div className="homeSearch_c">
 						<h1><img src="./src/assets/jiuxianLogo.png"/></h1>
 						<div className="search">
-							<input type="text" placeholder="【潭酒特卖】整箱低至59元，爆款满200-100元！"/>
-							<input type="button" value="搜索"/>
+							<input type="text" placeholder="【潭酒特卖】整箱低至59元，爆款满200-100元！" value={this.state.keyword} onChange={this.change.bind(this)}/>
+							<input type="button" value="搜索" onClick={this.search.bind(this)}/>
 							<i className="fa fa-search"></i>
 						</div>
 					</div>

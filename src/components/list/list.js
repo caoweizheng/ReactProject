@@ -34,19 +34,38 @@ class ListComponent extends React.Component{
 
 	}
 
-	componentWillMount(){
-		let type = window.location.hash.split('?')[1].split('=')[1];
+	componentWillMount(){		     
+		let type = this.props.location.query.type;
+		let keyword = this.props.location.query.keyword;
+		console.log('-------',type,keyword)
+		     
 
-		http.get('getProduct').then((res) => {
-			res.data.data.map((item) => {
-   
-				if(item.d_type == type){
+		if(keyword){
+			http.post('searchProduct',{keyword:keyword}).then((res) => {
+			  
+				res.data.data.map((item) => {
+	   		
 					this.state.goodsList.push(item)
-				}
+				})
+				this.sorting('goodPersen')
+				this.setState({})
 			})
-			this.sorting('goodPersen')
-			this.setState({})
-		})
+			     
+		}else{
+
+			http.get('getProduct').then((res) => {
+				res.data.data.map((item) => {
+	   
+					if(item.d_type == type){
+						this.state.goodsList.push(item)
+					}
+				})
+				this.sorting('goodPersen')
+				this.setState({})
+			})
+		}
+		     
+
 	}
 
 	componentDidMount(){

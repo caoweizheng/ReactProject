@@ -43,7 +43,7 @@ class MyComponent extends React.Component{
 				color:'red'
 			}
 		},{
-			img:'&#xe70f;',
+			img:'&#xe677;',
 			txt:'足迹',
 			color:{
 				color:'blue'
@@ -73,7 +73,7 @@ class MyComponent extends React.Component{
 				color:'red'
 			}
 		},{
-			img:'&#xe617;',
+			img:'&#xe6f8;',
 			txt:'招商入驻',
 			color:{
 				color:'orange'
