@@ -25,13 +25,6 @@ class DetailsComponent extends React.Component{
         })       
     }
 
-    // toDetails(pid){
-    //         this.props.router.push({pathname:'car',query:{
-    //             proId:pid
-    //         }})
-                 
-    //     }
-
     routerBack(){
         this.props.router.go(-1)
     }
@@ -90,7 +83,7 @@ class DetailsComponent extends React.Component{
                         </li>
                     </ul>
 
-                    <button className="btn1" onClick="Z">加入购物车</button>
+                    <button className="btn1">加入购物车</button>
                     <button className="btn2">立即购买</button>
                 </div>
             </div>
