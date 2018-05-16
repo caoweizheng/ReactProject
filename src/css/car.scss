@@ -3,26 +3,26 @@
     display: flex;
     flex-direction: column;
     .header_z{
-        height: 40px;
-        border-bottom: 1px solid #E8E8E8;
+        height: 0.533333rem;
+        border-bottom: 0.013333rem solid #E8E8E8;
         background: #FAFAFA;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         i{
-            font-size: 14px;
+            font-size: 0.186667rem;
             float: left;
-            line-height: 40px;
+            line-height: 0.533333rem;
         }
         .i1{
-            padding-left: 10px;
+            padding-left: 0.133333rem;
         }
         .car_zt{
-            font-size: 16px;
-            line-height: 40px;
+            font-size: 0.213333rem;
+            line-height: 0.533333rem;
             float: left;
-            width: 315px;
+            width: 4.2rem;
             text-align: center;
             color: #252525;
         }
@@ -32,43 +32,43 @@
     .main_z{
         flex: 1;
         overflow-x: hidden;
-        padding-top: 40px;
+        padding-top: 0.533333rem;
         ul{
             li{
-                padding: 36px 20px 0 40px;
-                border-bottom: 1px solid #E8E8E8;
-                height: 128px;
+                padding: 0.48rem 0.266667rem 0 0.533333rem;
+                border-bottom: 0.013333rem solid #E8E8E8;
+                height: 1.866667rem;
                 img{
                     float: left;
                     display: inline-block;
-                    width: 80px;
-                    border:1px solid #E8E8E8;
-                    margin-right: 10px;
+                    width: 1.066667rem;
+                    border: 0.013333rem solid #E8E8E8;
+                    margin-right: 0.133333rem;
                 }
                 h4{
                     font-weight: normal;
-                    font-size: 12px;
-                    padding-bottom: 5px;
+                    font-size: 0.16rem;
+                    padding-bottom: 0.066667rem;
                 }
                 p{
                     display: block;
-                    font-size: 12px;
-                    line-height: 20px;
+                    font-size: 0.16rem;
+                    line-height: 0.266667rem;
                     span{
                         color: #FF0000;
                     }
                     button{
                         background: #fff;
-                        border: 1px solid #D0D0D0;
+                        border: 0.013333rem solid #D0D0D0;
                     }
                     input{
-                        width: 30px;
-                        height: 19px;
-                        border: 1px solid #D0D0D0;
+                        width: 0.4rem;
+                        height: 0.253333rem;
+                        border: 0.013333rem solid #D0D0D0;
                         text-align: center;
                     }
                     .del{
-                        margin-left: 100px;
+                        margin-left: 1.333333rem;
                     }
                 }
             }
@@ -77,30 +77,30 @@
 
 
     .footer_z{
-        height: 50px;
+        height: 0.666667rem;
         background: #fff;
         z-index: 10000;
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        border-top: 1px solid #D9D9D9;
+        border-top: 0.013333rem solid #D9D9D9;
         p{
-            font-size: 14px;
-            line-height: 36px;
-            padding-left: 70px;
+            font-size: 0.186667rem;
+            line-height: 0.48rem;
+            padding-left: 0.933333rem;
             span{
                 color: #FF3333;
             }
             button{
-                font-size:16px;
-                width: 98px;
-                height: 50px;
+                font-size: 0.213333rem;
+                width: 1.306667rem;
+                height: 0.666667rem;
                 background: #FD5A5B;
                 color: #fff;
                 text-align: center;
                 border: none;
-                margin-left: 106px;
+                margin-left: 1.413333rem;
             }
         }
     }
