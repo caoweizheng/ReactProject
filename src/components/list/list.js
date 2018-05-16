@@ -93,6 +93,11 @@ class ListComponent extends React.Component{
 		     
 	}
 
+	toDetails(pid){
+
+		this.props.router.push({pathname:'details',query:{proId:pid}})
+	}
+
     render(){
     	let temp = null;
     	if(this.state.isRow){
@@ -122,7 +127,7 @@ class ListComponent extends React.Component{
 								this.state.goodsList.map((item) => {
 
 									return (
-										<li key={item._id}>
+										<li key={item._id} onClick={this.toDetails.bind(this,item._id)}>
 											<img src={item.imgPath}/>
 											<div>
 												<p className="listDesc">{item.proName}</p>

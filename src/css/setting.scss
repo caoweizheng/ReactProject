@@ -1,0 +1,226 @@
+.settingTitle{
+    height: 0.533333rem;
+    background-color: #de4943;
+    color: #fff;
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+    padding:0 0.133333rem;
+    i{
+    	font-size:0.18rem;
+    	width: 0.533333rem;
+    	line-height: 0.533333rem;
+
+    }
+    p{
+
+    	line-height: 0.533333rem;
+    	font-size:0.156667rem;
+    }
+}
+.setCon{
+	background:#fff;
+    p{
+		display:flex;
+	    justify-content: space-between;
+	    border-bottom:0.013333rem solid #eee;
+	    padding:0.233333rem 0.266667rem;
+    	span{
+    		font-size:0.18rem;
+    		i{
+    			font-size:0.16rem;
+    		}
+    		img{
+    			width: 0.4rem;
+    		}
+    	}
+    }
+}
+.setAddress{
+	background:#fff;
+	margin-top: 0.233333rem;
+    p{
+		display:flex;
+	    justify-content: space-between;
+	    border-bottom:0.013333rem solid #eee;
+	    padding:0.233333rem 0.266667rem;
+    	span{
+    		font-size:0.18rem;
+    		i{
+    			font-size:0.16rem;
+    		}
+    	}
+    }
+}
+.myGender{
+	width: 100%;
+	height: 100%;
+	position:absolute;
+	left: 0;
+	top: 0;
+	background:rgba(0,0,0,0.1);
+	div{
+		position:absolute;
+		bottom: 0;
+		width: 100%;
+		p{
+			width: 100%;
+			background:#fff;
+			padding:0.133333rem 0;
+			border-bottom:0.013333rem solid #eee;
+			font-size:0.183333rem;
+			text-align:center;
+		}
+		p:last-child{
+			margin-top: 0.133333rem;
+			border:0 none;
+		}
+	}
+
+}
+
+.nickWall{
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    .nickTitle{
+        display:flex;
+        width: 100%;
+        justify-content: space-between;
+        padding:0.133333rem 0.156667rem;
+        span{
+            font-size:0.156667rem;
+        }
+        span:nth-of-type(1){
+            font-weight:600;
+        }
+    }
+
+    .nickIn{
+        display:flex;
+        width: 100%;
+        input{
+            width: 100%;
+            border:0 none;
+            background:#fff;
+            padding:0.2rem 0.133333rem;
+        }
+    }
+}
+.addressWall{
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:#eee;
+    display:flex;
+    flex-direction:column;
+    .addressTitle{
+        display:flex;
+        width: 100%;
+        padding:0 0.133333rem;
+        border-bottom:0.013333rem solid #ccc;
+        height: 0.533333rem;
+        i{
+            width: 0.533333rem;
+            line-height: 0.533333rem;
+            font-size:0.18rem;
+        }
+        p{
+
+            line-height: 0.533333rem;
+            font-size:0.206667rem;
+            padding-right: 0.266667rem;
+            flex:1;
+            text-align:center;
+        }
+    }
+    .addressCon{
+        flex:1;
+        div{
+            background:#fff;
+            height: 0.7rem;
+            display:flex;
+            justify-content: space-between;
+            align-self: center;
+            padding:0.066667rem 0.066667rem;
+            div{
+                display:flex;
+                flex-direction:column;
+                align-self: center;
+                p{
+                    font-size:0.173333rem;
+                    span{
+                        font-size:0.173333rem;
+                    }
+                }
+            }
+            i{
+                font-size:0.34rem;
+                line-height: 0.6rem;
+            }
+        }
+    }
+    .addressBottom{
+        height: 0.533333rem;
+        span{
+            display:block;
+            margin: 0 auto;
+            text-align:center;
+            font-size:0.18rem;
+            color:#fff;
+            background:red;
+            width: 80%;
+            border-radius:0.066667rem;
+            padding:0.133333rem;
+        }
+    }
+}
+
+.addAddressWall{
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:#fff;
+
+    .addDetails{
+        width: 100%;
+        display:flex;
+        flex-wrap:wrap;
+        p{
+            display:flex;
+            width: 100%;
+            border-bottom:0.013333rem solid #eee;
+            padding:0.233333rem 0.133333rem;
+            span{
+                width: 0.833333rem;
+                font-size:0.203333rem;
+            }
+            input{
+                flex:1;
+                height: 0.266667rem;
+                border:0 none;
+                padding-left: 0.183333rem
+            }
+        }
+        i{
+            width: 80%;
+            display:block;
+            background:red;
+            color:#fff;
+            font-size:0.173333rem;
+            margin: 0 auto;
+            text-align:center;
+            padding:0.066667rem;
+            border-radius:0.066667rem;
+            margin-top: 0.133333rem
+        }
+
+    }
+
+}
