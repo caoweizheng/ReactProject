@@ -20,7 +20,7 @@ class DetailsComponent extends React.Component{
             console.log(res)
             this.setState({})
 
-            console.log(this.state.goodsData)
+            // console.log(this.state.goodsData)
                      
         })       
     }
@@ -29,11 +29,49 @@ class DetailsComponent extends React.Component{
         this.props.router.go(-1)
     }
 
+    addCar(){
+        let proId = this.state.goodsData[0]._id;
+        http.post('getCar',{
+            pId:proId
+        }).then((res) => {
+            console.log(res)
+                 
+            if(res.data.state){
+                 let count = parseInt(res.data.data[0].qty) + 1
+                 console.log(count)
+                      
+                      
+                http.post('updateCar',{proId:proId,qty:count}).then((res)=> {
+                    console.log('updatacar',res)
+                         
+                })
+            }else{
+
+                http.post('addCar',{
+                    pId:this.state.goodsData[0]._id,
+                    proName:this.state.goodsData[0].proName,
+                    imgPath:this.state.goodsData[0].imgPath,
+                    actPrice:this.state.goodsData[0].actPrice,
+                    jxPrice:this.state.goodsData[0].jxPrice
+                }).then((res) => {
+                    console.log('addCar',res)
+                         
+                })
+            }
+                 
+        })
+
+    }
+
     render(){
         return (
             <div className="det">
                 <div className="header_d">
+
+                <div><i className="iconfont i3" onClick={this.toCar.bind(this)}>&#xe635;</i></div>
+
                 <div><i className="iconfont i3" onClick={this.routerBack.bind(this)} >&#xe635;</i></div>
+
                     <div className="header_d1">商品详情</div>
                     <div><i className="iconfont">&#xe61a;</i></div>
                 </div>
@@ -84,6 +122,10 @@ class DetailsComponent extends React.Component{
                     </ul>
 
                     <button className="btn1">加入购物车</button>
+
+
+                    <button className="btn1" onClick={this.addCar.bind(this)}>加入购物车</button>
+
                     <button className="btn2">立即购买</button>
                 </div>
             </div>

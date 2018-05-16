@@ -66,7 +66,6 @@ class MainComponent extends React.Component{
 				}else{
 					homeSearch.style.backgroundColor = 'rgba(0,0,0,0.4)'
 				}
-			     
 		}
 	}
 
@@ -83,18 +82,5 @@ class MainComponent extends React.Component{
 				</div>
 			</div>)
 	}
-}
-window.onscroll = function(){
-		let homeSearch = document.querySelector('.homeSearch_c')
-		if(homeSearch == null){
-			return;
-		}
-		if(window.scrollY >= 100){
-			homeSearch.style.backgroundColor = 'rgba(255,0,0,0.8)'
-			     
-		}else{
-			homeSearch.style.backgroundColor = 'rgba(0,0,0,0.4)'
-		}
-	     
 }
 export default MainComponent;

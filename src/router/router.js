@@ -12,6 +12,7 @@ import MyComponent from '../components/my/my'
 import LoginComponent from '../components/login/login'
 import RegisterComponent from '../components/register/register'
 import ListComponent from '../components/list/list'
+import SettingComponent from '../components/my/setting'
 
 import $ from 'jquery'
 import http from '../utils/httpClient.js'
@@ -20,7 +21,7 @@ import http from '../utils/httpClient.js'
 let footHight = (nextState,replace,next) => {
 
 	
-	if(nextState.location.pathname == '/car'){
+	if(nextState.location.pathname == '/car'  || nextState.location.pathname == '/my'){
 		http.get('loginState').then((res) => {
 			if(res.data.state){
 				next()
@@ -78,16 +79,19 @@ let routes = (
 	<Route>
 		<Route path="/" component={MainComponent} onEnter={footHight}>
 			<IndexRoute component={HomeComponent}/>
-			<route path="/home" component={HomeComponent} onEnter={footHight}/>
-			<route path="/car" component={CarComponent} onEnter={footHight}/>
-			<route path="/category" component={CategoryComponent} onEnter={footHight}/>
-			<route path="/my" component={MyComponent} onEnter={footHight}/>
+			<route path="home" component={HomeComponent} onEnter={footHight}/>
+			<route path="car" component={CarComponent} onEnter={footHight}/>
+			<route path="category" component={CategoryComponent} onEnter={footHight}/>
+			<route path="my" component={MyComponent} onEnter={footHight}/>
 		</Route>
 
-		<Route path="/login" component={LoginComponent}></Route>
-		<Route path="/register" component={RegisterComponent}></Route>
-		<Route path="/list" component={ListComponent}></Route>
-		<Route path="/details" component={DetailsComponent}></Route>
+		<Route path="login" component={LoginComponent}></Route>
+		<Route path="register" component={RegisterComponent}></Route>
+		<Route path="list" component={ListComponent}></Route>
+		<Route path="details" component={DetailsComponent}></Route>
+		<Route path="/setting" component={SettingComponent}>
+			
+		</Route>
 
 	</Route>
 	)

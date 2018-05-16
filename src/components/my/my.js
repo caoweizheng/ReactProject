@@ -41,11 +41,15 @@ class IsLoginComponent extends React.Component{
 		this.setState({username:name})
 	}
 
+	toSetting(){
+		this.props.islogin.props.router.push({pathname:'setting'})
+	}
+
 	render(){
 		return(<div className="myTitle" style={bg}>
 				<div>
 					<i style={color} className="iconfont usePic"><img src="https://misc.jiuxian.com/m_user/images/usercenter/userPhoto.png"/></i>
-					<p style={fontsize}>{this.state.username}</p>
+					<p style={fontsize} onClick={this.toSetting.bind(this)}>{this.state.username}</p>
 				</div>
 			</div>)
 	}
