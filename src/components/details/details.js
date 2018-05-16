@@ -17,28 +17,30 @@ class DetailsComponent extends React.Component{
 
         http.post('detilsPro',{proId:pId}).then((res) => {
             this.state.goodsData.push(res.data.data[0])
-
+            console.log(res)
             this.setState({})
 
             console.log(this.state.goodsData)
                      
         })       
-             
-             
-
     }
 
-    
+    // toDetails(pid){
+    //         this.props.router.push({pathname:'car',query:{
+    //             proId:pid
+    //         }})
+                 
+    //     }
 
-    // routerBack(){
-    //     this.$router.go(-1);
-    // }
+    routerBack(){
+        this.props.router.go(-1)
+    }
 
     render(){
         return (
             <div className="det">
                 <div className="header_d">
-                <div><i className="iconfont i3">&#xe635;</i></div>
+                <div><i className="iconfont i3" onClick={this.routerBack.bind(this)} >&#xe635;</i></div>
                     <div className="header_d1">商品详情</div>
                     <div><i className="iconfont">&#xe61a;</i></div>
                 </div>
@@ -83,12 +85,12 @@ class DetailsComponent extends React.Component{
                             <p>收藏</p>
                         </li>
                         <li>
-                            <i className="iconfont">&#xe64e;</i>
-                            <p>购物车</p>
+                            <a href="http://localhost:7583/#/car"><i className="iconfont">&#xe64e;</i>
+                            <p>购物车</p></a>
                         </li>
                     </ul>
 
-                    <button className="btn1">加入购物车</button>
+                    <button className="btn1" onClick="Z">加入购物车</button>
                     <button className="btn2">立即购买</button>
                 </div>
             </div>
