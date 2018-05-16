@@ -68,7 +68,6 @@ class DetailsComponent extends React.Component{
             <div className="det">
                 <div className="header_d">
 
-                <div><i className="iconfont i3" onClick={this.toCar.bind(this)}>&#xe635;</i></div>
 
                 <div><i className="iconfont i3" onClick={this.routerBack.bind(this)} >&#xe635;</i></div>
 

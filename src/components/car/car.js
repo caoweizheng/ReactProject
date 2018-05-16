@@ -7,7 +7,7 @@ import http from '../../utils/httpClient.js'
 class CarComponent extends React.Component{
 
     state = {
-        carlist: [],
+        carlist: []
 
     }
 
@@ -19,9 +19,9 @@ class CarComponent extends React.Component{
         // }
     }
 
-    change = (e) => {
-        this.setState({text: e.target.value})
-    }
+    // change = (e) => {
+    //     this.setState({text: e.target.value})
+    // }
 
     componentDidMount(){
 
@@ -37,30 +37,47 @@ class CarComponent extends React.Component{
                      
         }) 
 
-        $(function(){
-            $(".sub").click(function(){
-                var t = $(this).parent().find('.num');
-                t.val(parseInt(t.val()) - 1); 
-                 if (t.val() <= 1) { 
-                  t.val(1); 
-                 } 
-            })
-            $(".add").click(function(){
-                var t = $(this).parent().find('.num');
-                t.val(parseInt(t.val()) + 1); 
-                 if (t.val() <= 1) { 
-                  t.val(1); 
-                 }
-            })
-        })
+
+
+        // $(function(){
+        //     $(".sub").click(function(){
+        //         var t = $(this).parent().find('.num');
+        //         t.val(parseInt(t.val()) - 1); 
+        //          if (t.val() <= 1) { 
+        //           t.val(1); 
+        //          } 
+        //     })
+        //     $(".add").click(function(){
+        //         var t = $(this).parent().find('.num');
+        //         t.val(parseInt(t.val()) + 1); 
+        //          if (t.val() <= 1) { 
+        //           t.val(1); 
+        //          }
+        //     })
+        // })
     }
 
     routerBack(){
         this.props.router.go(-1)
     }
 
-	render(){
-		return (
+    add(idx){
+        this.state.carlist[idx].qty++
+        this.setState({carlist:this.state.carlist})
+    }
+
+    sub(idx){
+        this.state.carlist[idx].qty--
+        this.setState({carlist:this.state.carlist})
+    }
+    change(idx,event){
+        this.state.carlist[idx].qty = event.target.value;
+        this.setState({carlist:this.state.carlist})
+    }
+
+
+    render(){
+        return (
             <div className="car_z">
 
                 <div className="header_z">
@@ -74,17 +91,16 @@ class CarComponent extends React.Component{
 
 
                         {
-
-                            this.state.carlist.map((item) => {
+                            this.state.carlist.map((item,idx) => {
                                 return (
                                     <li key={item._id}>
                                         <img src={item.imgPath}/>
                                         <h4>{item.proName}</h4>
                                         <p><span>￥{item.actPrice}.00</span></p>
                                         <p>
-                                            <button className="sub">-</button>
-                                            <input type="number" className="num" value={this.state.text} onChange={this.change} />
-                                            <button className="add">+</button>
+                                            <button className="sub" onClick={this.sub.bind(this,idx)}>-</button>
+                                            <input type="number" className="num" value={this.state.carlist[idx].qty} onChange={this.change.bind(this,idx)} />
+                                            <button className="add" onClick={this.add.bind(this,idx)}>+</button>
                                             <span className="del">删除</span>
                                         </p>
                                     </li>
@@ -103,7 +119,7 @@ class CarComponent extends React.Component{
                 </div>
             </div>
         )
-	}
+    }
 }
 
 export default CarComponent;
