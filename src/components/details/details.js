@@ -25,13 +25,6 @@ class DetailsComponent extends React.Component{
         })       
     }
 
-    // toDetails(pid){
-    //         this.props.router.push({pathname:'car',query:{
-    //             proId:pid
-    //         }})
-                 
-    //     }
-
     routerBack(){
         this.props.router.go(-1)
     }
@@ -75,7 +68,13 @@ class DetailsComponent extends React.Component{
             <div className="det">
                 <div className="header_d">
 
+<<<<<<< HEAD
                 <div><i className="iconfont i3" onClick={this.routerBack.bind(this)} >&#xe635;</i></div>
+=======
+
+                <div><i className="iconfont i3" onClick={this.routerBack.bind(this)} >&#xe635;</i></div>
+
+>>>>>>> 5b6eac1765b5b47301cf4f5f9e47ea68fd4870a0
                     <div className="header_d1">商品详情</div>
                     <div><i className="iconfont">&#xe61a;</i></div>
                 </div>
@@ -128,7 +127,10 @@ class DetailsComponent extends React.Component{
 
                     <button className="btn1" onClick={this.addCar.bind(this)}>加入购物车</button>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5b6eac1765b5b47301cf4f5f9e47ea68fd4870a0
                     <button className="btn2">立即购买</button>
                 </div>
             </div>

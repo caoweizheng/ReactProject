@@ -1,157 +1,156 @@
 .det{
-    height:100%;
-    display:flex;
+    height: 100%;
+    display: flex;
     flex-direction: column;
     .header_d{
-        height:40px;
-        background:#DE4943;
-        position:fixed;
+        height: 0.533333rem;
+        background: #DE4943;
+        position: fixed;
         left: 0;
         top: 0;
-        width:100%;
+        width: 100%;
         i{
-            font-size:14px;
-            float:left;
-            line-height:40px;
-            color:#fff;
+            font-size: 0.186667rem;
+            float: left;
+            line-height: 0.533333rem;
+            color: #fff;
         }
         .i3{
-            padding-left:18px;
+            padding-left: 0.24rem;
         }
         .header_d1{
-            font-size:16px;
-            line-height:40px;
-            float:left;
-            width:310px;
-            text-align:center;
-            color:#fff;
+            font-size: 0.213333rem;
+            line-height: 0.533333rem;
+            float: left;
+            width: 4.133333rem;
+            text-align: center;
+            color: #fff;
         }
     }
     .main_d{
-        flex:1;
-        overflow-x:hidden;
+        flex: 1;
+        overflow-x: hidden;
         .main_d1{
-            border-bottom:1px solid #F3F5F6;
-            padding-bottom:10px;
-            padding:0 10px;
+            border-bottom: 0.013333rem solid #F3F5F6;
+            padding-bottom: 0.133333rem;
+            padding: 0 0.133333rem;
             img{
-                margin-top:40px;
-                width:320px;
-                margin-left:18px;
+                margin-top: 0.533333rem;
+                width: 4.266667rem;
+                margin-left: 0.24rem;
             }
             .p1{
-                padding-top:8px;
-                font-size:16px;
-                line-height:24px;
+                padding-top: 0.106667rem;
+                font-size: 0.213333rem;
+                line-height: 0.32rem;
             }
             .p2{
-                padding-top:10px;
-                font-size:14px;
-                line-height:22px;
-                color:#FC5A5A;
+                padding-top: 0.133333rem;
+                font-size: 0.186667rem;
+                line-height: 0.293333rem;
+                color: #FC5A5A;
                 span{
-                    font-size:16px;
-                    line-height:22px;
-                    font-weight:bold;
+                    font-size: 0.213333rem;
+                    line-height: 0.293333rem;
+                    font-weight: bold;
                 }
                 del{
-                    padding-left:5px;
-                    font-size:14px;
-                    line-height:22px;
-                    color:#999999;
+                    padding-left: 0.066667rem;
+                    font-size: 0.186667rem;
+                    line-height: 0.293333rem;
+                    color: #999999;
                 }
             }
         }
         .main_d2{
             p{
-                font-size:14px;
-                line-height:42px;
-                color:#252525;
-                border-bottom:1px solid #E9E9EA;
-                padding:0 10px;
+                font-size: 0.186667rem;
+                line-height: 0.56rem;
+                color: #252525;
+                border-bottom: 0.013333rem solid #E9E9EA;
+                padding: 0 0.133333rem;
                 span{
-                    padding-left:30px;
+                    padding-left: 0.4rem;
                 }
             }
                 
         }
         .main_d3{
             p{
-                padding:0 10px;
+                padding: 0 0.133333rem;
             }
             .p4{
-                font-size:14px;
-                line-height:30px;
-                color:#252525;
+                font-size: 0.186667rem;
+                line-height: 0.4rem;
+                color: #252525;
                 span{
-                    padding-left:30px;
+                    padding-left: 0.4rem;
                 }
                 i{
-                    padding-left:180px;
-                    font-size:12px;
+                    padding-left: 2.4rem;
+                    font-size: 0.16rem;
                 }
             }
             .p5{
-                padding-bottom:15px;
+                padding-bottom: 0.2rem;
             }
             .p6{
-                font-size:12px;
-                background:#F9F9F9;
-                line-height:40px;
-                border-bottom:1px solid #E2E2E2;
+                font-size: 0.16rem;
+                background: #F9F9F9;
+                line-height: 0.533333rem;
+                border-bottom: 0.013333rem solid #E2E2E2;
                 span{
-                    padding-right:15px;
-                    color:#666666;
+                    padding-right: 0.2rem;
+                    color: #666666;
                 }
             }
         }
     }
     .footer_d{
-        background:#FAFAFA;
-        height:46px;
-        position:fixed;
-        left:0;
-        bottom:0;
-        width:100%;
+        background: #FAFAFA;
+        height: 0.613333rem;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
         ul{
-            height:46px;
-            float:left;
-            border-top:1px solid #E9E9EA;
+            height: 0.613333rem;
+            float: left;
+            border-top: 0.013333rem solid #E9E9EA;
             li{
-                width:63px;
-                // height:46px;
-                float:left;
-                border-right:1px solid #E9E9EA;
-                position:relative;
+                width: 0.84rem;
+                float: left;
+                border-right: 0.013333rem solid #E9E9EA;
+                position: relative;
                 i{
-                    display:block;
-                    font-size:16px;
-                    position:absolute;
-                    left:24px;
-                    top:5px;
+                    display: block;
+                    font-size: 0.213333rem;
+                    position: absolute;
+                    left: 0.32rem;
+                    top: 0.066667rem;
                 }
                 p{
-                    padding-top:20px;
-                    font-size:12px;
-                    line-height:20px;
-                    color:#484848;
-                    text-align:center;
+                    padding-top: 0.266667rem;
+                    font-size: 0.16rem;
+                    line-height: 0.266667rem;
+                    color: #484848;
+                    text-align: center;
                 }
             }
         }
         button{
-            float:left;
-            width:93px;
-            height:46px;
-            border:none;
-            font-size:12px;
-            color:#fff;
+            float: left;
+            width: 1.24rem;
+            height: 0.613333rem;
+            border: none;
+            font-size: 0.16rem;
+            color: #fff;
         }
         .btn1{
-            background:#FC5A5A;
+            background: #FC5A5A;
         }
         .btn2{
-            background:#3C3F51;
+            background: #3C3F51;
         }
     }
 }
