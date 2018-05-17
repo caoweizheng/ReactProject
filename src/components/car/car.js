@@ -7,53 +7,30 @@ import http from '../../utils/httpClient.js'
 class CarComponent extends React.Component{
 
     state = {
-        carlist: []
+        carlist: [],
+        totalPrice: 0,
 
     }
 
-    constructor(props){
-        super(props)
-        // this.state = {
-        //     text: '1',
-        //     text1: '1'
-        // }
-    }
-
-    // change = (e) => {
-    //     this.setState({text: e.target.value})
-    // }
 
     componentDidMount(){
-
-        // let pId = this.props.location.query.proId;
-        // console.log(pId)
-
         http.post('getCar').then((res) => {
-            // this.state.goodsData.push(res.data.data[0])
             console.log(res)
             this.setState({carlist:res.data.data})
 
-            // console.log(this.state.goodsData)
-                     
-        }) 
+            this.state.carlist.map((item) => {
+
+                this.state.totalPrice += item.qty * item.actPrice
+                    
+            })
+            this.setState({})
+        })
 
 
 
-        // $(function(){
-        //     $(".sub").click(function(){
-        //         var t = $(this).parent().find('.num');
-        //         t.val(parseInt(t.val()) - 1); 
-        //          if (t.val() <= 1) { 
-        //           t.val(1); 
-        //          } 
-        //     })
-        //     $(".add").click(function(){
-        //         var t = $(this).parent().find('.num');
-        //         t.val(parseInt(t.val()) + 1); 
-        //          if (t.val() <= 1) { 
-        //           t.val(1); 
-        //          }
-        //     })
+        // http.post('updateCar',{proId:proId,qty:count}).then((res)=> {
+        //     console.log('updatacar',res)
+                         
         // })
     }
 
@@ -61,19 +38,46 @@ class CarComponent extends React.Component{
         this.props.router.go(-1)
     }
 
+    changeQty(idx,event){
+        if(event.target.value == ''){
+            this.setState({carlist:this.state.carlist,totalPrice:this.state.totalPrice*1-this.state.carlist[idx].actPrice*1*this.state.carlist[idx].qty*1})
+        }
+
+        let count = Math.abs(this.state.carlist[idx].qty - event.target.value)
+
+        if(event.target.value > this.state.carlist[idx].qty){
+        this.setState({carlist:this.state.carlist,totalPrice:this.state.totalPrice*1+this.state.carlist[idx].actPrice*1*count*1});
+        }else{
+            this.setState({carlist:this.state.carlist,totalPrice:this.state.totalPrice*1-this.state.carlist[idx].actPrice*1*count*1});
+        }
+             
+    }
     add(idx){
-        this.state.carlist[idx].qty++
-        this.setState({carlist:this.state.carlist})
+
+       this.state.carlist[idx].qty++
+        this.setState({carlist:this.state.carlist,totalPrice:this.state.totalPrice*1+this.state.carlist[idx].actPrice*1})
+        
     }
 
     sub(idx){
         this.state.carlist[idx].qty--
+        this.setState({carlist:this.state.carlist,totalPrice:this.state.totalPrice*1-this.state.carlist[idx].actPrice*1})
+        if(this.state.carlist[idx].qty<=1){
+            this.state.carlist[idx].qty=1;
+        }
+    }
+    del(idx){
+        this.state.carlist.splice(idx,1)
         this.setState({carlist:this.state.carlist})
     }
+ 
+
     change(idx,event){
         this.state.carlist[idx].qty = event.target.value;
         this.setState({carlist:this.state.carlist})
     }
+   
+
 
 
     render(){
@@ -99,9 +103,9 @@ class CarComponent extends React.Component{
                                         <p><span>￥{item.actPrice}.00</span></p>
                                         <p>
                                             <button className="sub" onClick={this.sub.bind(this,idx)}>-</button>
-                                            <input type="number" className="num" value={this.state.carlist[idx].qty} onChange={this.change.bind(this,idx)} />
+                                            <input type="number" className="num" value={this.state.carlist[idx].qty} onInput={this.changeQty.bind(this,idx)} onChange={this.change.bind(this,idx)} />
                                             <button className="add" onClick={this.add.bind(this,idx)}>+</button>
-                                            <span className="del">删除</span>
+                                            <span className="del" onClick={this.del.bind(this,idx)}>删除</span>
                                         </p>
                                     </li>
                                 )
@@ -113,7 +117,7 @@ class CarComponent extends React.Component{
 
                 <div className="footer_z">
                     <p>
-                        合计：<span>￥457.00</span>
+                        合计：<span className="totalPrice">{this.state.totalPrice}</span>
                         <button>去结算</button>
                     </p>
                 </div>
