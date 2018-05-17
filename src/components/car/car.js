@@ -7,39 +7,20 @@ import http from '../../utils/httpClient.js'
 class CarComponent extends React.Component{
 
     state = {
-<<<<<<< HEAD
-        carlist: []
 
-    }
-
-    constructor(props){
-        super(props)
-
-    }
-=======
         carlist: [],
         totalPrice: 0,
 
     }
 
->>>>>>> 5b6eac1765b5b47301cf4f5f9e47ea68fd4870a0
 
 
 
     componentDidMount(){
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> 5b6eac1765b5b47301cf4f5f9e47ea68fd4870a0
         http.post('getCar').then((res) => {
             console.log(res)
-<<<<<<< HEAD
-            this.setState({carlist:res.data.data})       
-        }) 
 
-=======
             this.setState({carlist:res.data.data})
 
             this.state.carlist.map((item) => {
@@ -56,18 +37,17 @@ class CarComponent extends React.Component{
         //     console.log('updatacar',res)
                          
         // })
->>>>>>> 5b6eac1765b5b47301cf4f5f9e47ea68fd4870a0
     }
 
     routerBack(){
         this.props.router.go(-1)
     }
 
-<<<<<<< HEAD
+
     add(idx){
         this.state.carlist[idx].qty++
         this.setState({carlist:this.state.carlist})
-=======
+    }
     changeQty(idx,event){
         if(event.target.value == ''){
             this.setState({carlist:this.state.carlist,totalPrice:this.state.totalPrice*1-this.state.carlist[idx].actPrice*1*this.state.carlist[idx].qty*1})
@@ -82,20 +62,11 @@ class CarComponent extends React.Component{
         }
              
     }
-    add(idx){
 
-       this.state.carlist[idx].qty++
-        this.setState({carlist:this.state.carlist,totalPrice:this.state.totalPrice*1+this.state.carlist[idx].actPrice*1})
-        
->>>>>>> 5b6eac1765b5b47301cf4f5f9e47ea68fd4870a0
-    }
 
     sub(idx){
         this.state.carlist[idx].qty--
-<<<<<<< HEAD
-        this.setState({carlist:this.state.carlist})
-    }
-=======
+
         this.setState({carlist:this.state.carlist,totalPrice:this.state.totalPrice*1-this.state.carlist[idx].actPrice*1})
         if(this.state.carlist[idx].qty<=1){
             this.state.carlist[idx].qty=1;
@@ -106,25 +77,14 @@ class CarComponent extends React.Component{
         this.setState({carlist:this.state.carlist})
     }
  
-
->>>>>>> 5b6eac1765b5b47301cf4f5f9e47ea68fd4870a0
     change(idx,event){
         this.state.carlist[idx].qty = event.target.value;
         this.setState({carlist:this.state.carlist})
     }
-<<<<<<< HEAD
-
-
-	render(){
-		return (
-=======
-   
-
 
 
     render(){
         return (
->>>>>>> 5b6eac1765b5b47301cf4f5f9e47ea68fd4870a0
             <div className="car_z">
 
                 <div className="header_z">
@@ -146,15 +106,10 @@ class CarComponent extends React.Component{
                                         <p><span>￥{item.actPrice}.00</span></p>
                                         <p>
                                             <button className="sub" onClick={this.sub.bind(this,idx)}>-</button>
-<<<<<<< HEAD
-                                            <input type="number" className="num" value={this.state.carlist[idx].qty} onChange={this.change.bind(this,idx)} />
-                                            <button className="add" onClick={this.add.bind(this,idx)}>+</button>
-                                            <span className="del">删除</span>
-=======
+
                                             <input type="number" className="num" value={this.state.carlist[idx].qty} onInput={this.changeQty.bind(this,idx)} onChange={this.change.bind(this,idx)} />
                                             <button className="add" onClick={this.add.bind(this,idx)}>+</button>
                                             <span className="del" onClick={this.del.bind(this,idx)}>删除</span>
->>>>>>> 5b6eac1765b5b47301cf4f5f9e47ea68fd4870a0
                                         </p>
                                     </li>
                                 )
