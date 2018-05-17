@@ -149,6 +149,9 @@ class MyComponent extends React.Component{
 
 		let loginState = window.localStorage.getItem('user');
 	}
+	goOrder(){
+		this.props.router.push({pathname:'order'})
+	}
 
 	render(){
 		let temp = null;
@@ -164,7 +167,7 @@ class MyComponent extends React.Component{
 						
 					{temp}
 					<div className="myOrder">
-						<p><span>我的订单</span><span>查看全部订单 <i className="iconfont">&#xe636;</i></span></p>
+						<p onClick={this.goOrder.bind(this)}><span>我的订单</span><span>查看全部订单 <i className="iconfont">&#xe636;</i></span></p>
 						<ul>
 							{
 								this.state.order.map((item,idx) => {

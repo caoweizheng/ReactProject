@@ -13,6 +13,7 @@ import LoginComponent from '../components/login/login'
 import RegisterComponent from '../components/register/register'
 import ListComponent from '../components/list/list'
 import SettingComponent from '../components/my/setting'
+import OrderComponent from '../components/order/order'
 
 import $ from 'jquery'
 import http from '../utils/httpClient.js'
@@ -22,6 +23,42 @@ let footHight = (nextState,replace,next) => {
 
 	
 	if(nextState.location.pathname == '/car'  || nextState.location.pathname == '/my'){
+	let routeStr = window.location.hash;
+		$('#mianFooter a').css({
+				color:'#898989'
+		})
+		if(routeStr.indexOf('home') > -1 || routeStr == '#/' ){
+			$('#mianFooter li a').eq(0).css({
+				color:'red'
+			})
+		}else if(routeStr.indexOf('category') > -1){
+			$('#mianFooter li a').eq(1).css({
+				color:'red'
+			})
+		}else if(routeStr.indexOf('car') > -1){
+			$('#mianFooter li a').eq(2).css({
+				color:'red'
+			})
+		}else if(routeStr.indexOf('my') > -1){
+			$('#mianFooter li a').eq(3).css({
+				color:'red'
+			})
+		}
+
+		$('#mianFooter li').click((e) => {
+			$('#mianFooter a').css({
+				color:'#898989'
+			})
+			if(e.target.tagName == "I"){				     
+				$(e.target).closest('a').css({
+					color:'red'
+				})
+				return;
+			}
+			$(e.target).css({
+				color:'red'
+			})    
+		})
 		http.get('loginState').then((res) => {
 			if(res.data.state){
 				next()
@@ -85,13 +122,13 @@ let routes = (
 			<route path="my" component={MyComponent} onEnter={footHight}/>
 		</Route>
 
-		<Route path="login" component={LoginComponent}></Route>
-		<Route path="register" component={RegisterComponent}></Route>
+		<Route path="login" component={LoginComponent}/>
+		<Route path="register" component={RegisterComponent}/>
 		<Route path="list" component={ListComponent}></Route>
-		<Route path="details" component={DetailsComponent}></Route>
-		<Route path="/setting" component={SettingComponent}>
-			
-		</Route>
+		<Route path="details" component={DetailsComponent}/>
+		<Route path="/setting" component={SettingComponent}/>
+		<Route path="/order" component={OrderComponent}/>
+		
 
 	</Route>
 	)

@@ -8,7 +8,8 @@ class LoginComponent extends React.Component{
 
 	state = {
 		phone:'',
-		pass:''
+		pass:'',
+		info:''
 	}
 
 	goMy(){
@@ -30,8 +31,19 @@ class LoginComponent extends React.Component{
 
 			 if(res.data.state){
 			 	window.localStorage.setItem('user',res.data.data)
-			 	this.props.router.push({pathname:'my'})
+			 	this.setState({info:'登录成功'})
+			 	document.querySelector('.information').style.display = 'block'	     
+				setTimeout(() =>{
+					document.querySelector('.information').style.display = 'none';
+			 		this.props.router.push({pathname:'my'})
+				},500)
 			 	     
+			 }else{
+			 	this.setState({info:'用户名或密码错误!!'})
+			 	document.querySelector('.information').style.display = 'block'	     
+				setTimeout(function(){
+					document.querySelector('.information').style.display = 'none';
+				},500)
 			 }
 		})
 
@@ -50,8 +62,8 @@ class LoginComponent extends React.Component{
 
 					<div className="loginUser">
 						<p>
-							<i className="iconfont">&#xe602;</i>
-							<input type="text" placeholder="手机号码" value={this.state.phone} onChange={this.uchange.bind(this)}/>
+							<i className="iconfont">&#xe6a2;</i>
+							<input type="text" placeholder="用户名" value={this.state.phone} onChange={this.uchange.bind(this)}/>
 						</p>
 						<p>
 							<i className="iconfont">&#xe63e;</i>
@@ -59,6 +71,9 @@ class LoginComponent extends React.Component{
 						</p>
 						<span className="loginNow" onClick={this.login.bind(this)}>立即登录</span>
 						<div className="forget"><span onClick={this.toRegister.bind(this)}>立即注册</span><span>忘记密码</span></div>
+					</div>
+					<div className="information">
+						<span>{this.state.info}</span>
 					</div>
 			</div>)
 	}

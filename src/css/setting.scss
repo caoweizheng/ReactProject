@@ -146,15 +146,19 @@
             display:flex;
             justify-content: space-between;
             align-self: center;
-            padding:0.066667rem 0.066667rem;
+            padding:0.066667rem 0.106667rem;
+            margin-bottom: 0.066667rem;
+            
             div{
                 display:flex;
                 flex-direction:column;
                 align-self: center;
+                height: 0.533333rem;
                 p{
                     font-size:0.173333rem;
                     span{
                         font-size:0.173333rem;
+                        margin-right: 0.133333rem;
                     }
                 }
             }
@@ -222,5 +226,25 @@
         }
 
     }
+}
+.exitWall{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    left: 0;
+    top: 0;
+    background:rgba(0,0,0,0.05);
 
+    span{
+        position:absolute;
+        bottom: 0;
+        display:block;
+        margin: 0 auto;
+        font-size:0.2rem;
+        width: 100%;
+        background:red;
+        color:#fff;
+        padding:0.266667rem 0;
+        text-align:center;
+    }
 }

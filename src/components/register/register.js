@@ -8,7 +8,8 @@ class RegisterComponent extends React.Component{
 
 	state = {
 		phone:'',
-		pass:''
+		pass:'',
+		info:''
 	}
 
 	goMy(){
@@ -23,15 +24,42 @@ class RegisterComponent extends React.Component{
 	}
 
 	register(){
-		     
-		http.post('userRegister',{phone:this.state.phone,password:this.state.pass}).then((res) => {
-			console.log(res)
 
-			 if(res.data.state){
-			 	this.props.router.push({pathname:'login'})
-			 	     
-			 }
+
+		http.post('checkUser',{phone:this.state.phone}).then((res) => {
+			console.log(res)
+			if(res.data.state){
+
+
+			this.setState({info:'用户已存在!'})
+			document.querySelector('.information').style.display = 'block'	     
+			setTimeout(function(){
+				document.querySelector('.information').style.display = 'none';
+
+			},500)
+
+			}else{
+
+				http.post('userRegister',{phone:this.state.phone,password:this.state.pass}).then((res) => {
+					console.log(res)
+
+					 if(res.data.state){
+					this.setState({info:'注册成功'})
+					document.querySelector('.information').style.display = 'block'	
+					setTimeout(() =>{
+						document.querySelector('.information').style.display = 'none';
+
+					 	this.props.router.push({pathname:'login'})
+					},500)		
+					 	     
+					 }
+				})
+			}    
 		})
+
+
+
+
 
 	}
 
@@ -44,14 +72,17 @@ class RegisterComponent extends React.Component{
 
 					<div className="loginUser">
 						<p>
-							<i className="iconfont">&#xe602;</i>
-							<input type="text" placeholder="手机号码" value={this.state.phone} onChange={this.uchange.bind(this)}/>
+							<i className="iconfont">&#xe6a2;</i>
+							<input type="text" placeholder="用户名" value={this.state.phone} onChange={this.uchange.bind(this)}/>
 						</p>
 						<p>
 							<i className="iconfont">&#xe63e;</i>
 							<input type="password" placeholder="密码" value={this.state.pass} onChange={this.pchange.bind(this)}/>
 						</p>
 						<span className="loginNow" onClick={this.register.bind(this)}>立即注册</span>
+					</div>
+					<div className="information">
+						<span>{this.state.info}</span>
 					</div>
 			</div>)
 	}

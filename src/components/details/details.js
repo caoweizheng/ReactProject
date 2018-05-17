@@ -36,11 +36,6 @@ class DetailsComponent extends React.Component{
         this.props.router.go(-1)
     }
 
-    toCar(){
-        this.props.router.go(-1)
-        
-    }
-
     addCar(){
         let proId = this.state.goodsData[0]._id;
         http.post('getCar',{
@@ -79,11 +74,8 @@ class DetailsComponent extends React.Component{
         return (
             <div className="det">
                 <div className="header_d">
-<<<<<<< HEAD
-                <div><i className="iconfont i3" onClick={this.toCar.bind(this)}>&#xe635;</i></div>
-=======
+
                 <div><i className="iconfont i3" onClick={this.routerBack.bind(this)} >&#xe635;</i></div>
->>>>>>> efc3201c9b19598f34853eacc1ca28fb3675720f
                     <div className="header_d1">商品详情</div>
                     <div><i className="iconfont">&#xe61a;</i></div>
                 </div>
@@ -133,11 +125,10 @@ class DetailsComponent extends React.Component{
                         </li>
                     </ul>
 
-<<<<<<< HEAD
+
                     <button className="btn1" onClick={this.addCar.bind(this)}>加入购物车</button>
-=======
-                    <button className="btn1" onClick="Z">加入购物车</button>
->>>>>>> efc3201c9b19598f34853eacc1ca28fb3675720f
+
+
                     <button className="btn2">立即购买</button>
                 </div>
             </div>

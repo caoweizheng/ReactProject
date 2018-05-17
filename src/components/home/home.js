@@ -23,6 +23,8 @@ class HomeComponent extends React.Component{
 			go:[],
 			go2:[],
 			homeSan:[],
+			homeSanList:[],
+			tavern:[],
 			tavern1:[],
 			tavern1list:[],
 			tavern2:[],
@@ -47,10 +49,32 @@ class HomeComponent extends React.Component{
 					this.state.data.wall.push(item)
 				} else if(item.target_type == 104){
 					this.state.data.killList.push(item)
-				} else if(item.target_type == 10){
+				} else if(item.target_type == 1){
 					this.state.data.go.push(item)
-				}else if(item.target_type == 11){
+				}else if(item.target_type == 2){
 					this.state.data.homeSan.push(item)
+				}else if(item.target_type == 3){
+					this.state.data.homeSanList.push(item)
+				}else if(item.target_type == 4){
+					this.state.data.go2.push(item)
+				}else if(item.target_type == 5){
+					this.state.data.tavern.push(item)
+				}else if(item.target_type == 6){
+					this.state.data.tavern1.push(item)
+				}else if(item.target_type == 7){
+					this.state.data.tavern1list.push(item)
+				}else if(item.target_type == 8){
+					this.state.data.tavern2.push(item)
+				}else if(item.target_type == 9){
+					this.state.data.tavern2list.push(item)
+				}else if(item.target_type == 10){
+					this.state.data.tavern3.push(item)
+				}else if(item.target_type == 11){
+					this.state.data.tavern3list.push(item)
+				}else if(item.target_type == 12){
+					this.state.data.tavern4.push(item)
+				}else if(item.target_type == 13){
+					this.state.data.tavern4list.push(item)
 				}else if(item.target_type == 105){
 					this.state.data.recommend.push(item)
 				}
@@ -214,14 +238,10 @@ class HomeComponent extends React.Component{
 
 				    		{
 				    			this.state.data.go.map((item) => {
-			          				return (<img src={item.imgPath} />)
+			          				return (<img key={item._id} src={item.imgPath} />)
 				          		})
 							}
 
-				    	<img src="https://img06.jiuxian.com/bill/2018/0511/df9380d0a6cb43cda50adeaddf8f1bcd.jpg"/>
-				    	<img src="https://img06.jiuxian.com/bill/2018/0511/df9380d0a6cb43cda50adeaddf8f1bcd.jpg"/>
-				    	<img src="https://img06.jiuxian.com/bill/2018/0511/df9380d0a6cb43cda50adeaddf8f1bcd.jpg"/>
-				    	<img src="https://img06.jiuxian.com/bill/2018/0511/df9380d0a6cb43cda50adeaddf8f1bcd.jpg"/>
 				    </div>
 
 
@@ -230,13 +250,9 @@ class HomeComponent extends React.Component{
 
 			    		{
 			    			this.state.data.homeSan.map((item) => {
-		          				return (<img src={item.imgPath} />)
+		          				return (<img key={item._id} src={item.imgPath} />)
 			          		})
 						}
-				    	<img src="https://img06.jiuxian.com/bill/2018/0504/1a7609e669f84e88a09943e9eb2ada25.jpg"/>
-
-				    	<img src="https://img06.jiuxian.com/bill/2018/0511/02d3b315d37c4136bb9c557c57074b5f.jpg"/>
-				    	<img src="https://img09.jiuxian.com/bill/2018/0504/6c592e77cba9464f9efba49673f2ed68.jpg"/>
 
 				    </div>
 
@@ -244,24 +260,16 @@ class HomeComponent extends React.Component{
 				    <div className="homeSanlist">
 						<div className='swiper-container4'>
 							<ul className='swiper-wrapper'>
-								<li className='swiper-slide'>
-									<img src="https://img10.jiuxian.com/bill/2018/0504/f926bf089e0649b192148d7f609ebf9e.jpg"/>
-								</li>
-								<li className='swiper-slide'>
-									<img src="https://img10.jiuxian.com/bill/2018/0504/f926bf089e0649b192148d7f609ebf9e.jpg"/>
-								</li>
-								<li className='swiper-slide'>
-									<img src="https://img10.jiuxian.com/bill/2018/0504/f926bf089e0649b192148d7f609ebf9e.jpg"/>
-								</li>
-								<li className='swiper-slide'>
-									<img src="https://img10.jiuxian.com/bill/2018/0504/f926bf089e0649b192148d7f609ebf9e.jpg"/>
-								</li>
-								<li className='swiper-slide'>
-									<img src="https://img10.jiuxian.com/bill/2018/0504/f926bf089e0649b192148d7f609ebf9e.jpg"/>
-								</li>
-								<li className='swiper-slide'>
-									<img src="https://img10.jiuxian.com/bill/2018/0504/f926bf089e0649b192148d7f609ebf9e.jpg"/>
-								</li>
+
+								{
+									this.state.data.homeSanList.map((item) => {
+										return (
+											<li key={item._id} className='swiper-slide'>
+												<img key={item._id} src={item.imgPath}/>
+											</li>)
+									})
+								}
+								
 							</ul>
 						</div>
 				    </div>
@@ -271,14 +279,10 @@ class HomeComponent extends React.Component{
 
 				    		{
 				    			this.state.data.go2.map((item) => {
-			          				return (<img src={item.imgPath} />)
+			          				return (<img key={item._id} src={item.imgPath} />)
 				          		})
 							}
 
-				    	<img src="https://img06.jiuxian.com/bill/2018/0511/df9380d0a6cb43cda50adeaddf8f1bcd.jpg"/>
-				    	<img src="https://img06.jiuxian.com/bill/2018/0511/df9380d0a6cb43cda50adeaddf8f1bcd.jpg"/>
-				    	<img src="https://img06.jiuxian.com/bill/2018/0511/df9380d0a6cb43cda50adeaddf8f1bcd.jpg"/>
-				    	<img src="https://img06.jiuxian.com/bill/2018/0511/df9380d0a6cb43cda50adeaddf8f1bcd.jpg"/>
 				    </div>
 
 
@@ -288,11 +292,13 @@ class HomeComponent extends React.Component{
 
 				    	<h3>精选频道</h3>
 				    	<div>
-				    		<img src="https://img06.jiuxian.com/bill/2018/0504/5732195707ae47b8a46871157ba05546.jpg"/>
-				    		<img src="https://img06.jiuxian.com/bill/2018/0504/5732195707ae47b8a46871157ba05546.jpg"/>
-				    		<img src="https://img06.jiuxian.com/bill/2018/0504/5732195707ae47b8a46871157ba05546.jpg"/>
-				    		<img src="https://img06.jiuxian.com/bill/2018/0504/5732195707ae47b8a46871157ba05546.jpg"/>
-				    		<img src="https://img06.jiuxian.com/bill/2018/0504/5732195707ae47b8a46871157ba05546.jpg"/>
+				    		{
+				    			this.state.data.tavern.map((item) => {
+			          				return (<img key={item._id} src={item.imgPath} />)
+				          		})
+
+
+							}
 				    	</div>	
 				    </div>
 
@@ -304,33 +310,24 @@ class HomeComponent extends React.Component{
 
 				    		{
 				    			this.state.data.tavern1.map((item) => {
-			          				return (<img src={item.imgPath} />)
+			          				return (<img key={item._id} src={item.imgPath} />)
 				          		})
 
 
 							}
 
-					    	<img src="https://img08.jiuxian.com/bill/2018/0504/189a5fc9a42c43dbb683fa328659f57f.jpg"/>
 
-					    	<img src="https://img06.jiuxian.com/bill/2018/0504/44e466be5aa7401fb72c89a82056e27a.jpg"/>
-
-					    	<img src="https://img09.jiuxian.com/bill/2018/0504/eafb308af0c24dd88ea340063b37b1c2.jpg"/>
-					    	<img src="https://img09.jiuxian.com/bill/2018/0504/eafb308af0c24dd88ea340063b37b1c2.jpg"/>
 				    	</div>
 
 						<div className='swiper-container5'>
 							<ul className='swiper-wrapper'>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
-								<li className='swiper-slide'><img src="https://img07.jiuxian.com/bill/2016/1214/87f5156b749a4f7c8e745b2e144918b0.jpg"/></li>
+
+								{
+					    			this.state.data.tavern1list.map((item) => {
+					    				return (<li key={item._id} className='swiper-slide'><img src={item.imgPath} /></li>)
+					          		})
+								}
+								
 							</ul>
 						</div>
 
