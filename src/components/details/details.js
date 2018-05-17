@@ -120,8 +120,6 @@ class DetailsComponent extends React.Component{
                         </li>
                     </ul>
 
-                    <button className="btn1">加入购物车</button>
-
 
                     <button className="btn1" onClick={this.addCar.bind(this)}>加入购物车</button>
 
