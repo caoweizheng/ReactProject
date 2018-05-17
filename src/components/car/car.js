@@ -44,10 +44,6 @@ class CarComponent extends React.Component{
     }
 
 
-    add(idx){
-        this.state.carlist[idx].qty++
-        this.setState({carlist:this.state.carlist})
-    }
     changeQty(idx,event){
         if(event.target.value == ''){
             this.setState({carlist:this.state.carlist,totalPrice:this.state.totalPrice*1-this.state.carlist[idx].actPrice*1*this.state.carlist[idx].qty*1})
@@ -62,7 +58,13 @@ class CarComponent extends React.Component{
         }
              
     }
+    add(idx){
 
+       this.state.carlist[idx].qty++
+        this.setState({carlist:this.state.carlist,totalPrice:this.state.totalPrice*1+this.state.carlist[idx].actPrice*1})
+        
+
+    }
 
     sub(idx){
         this.state.carlist[idx].qty--
@@ -77,10 +79,14 @@ class CarComponent extends React.Component{
         this.setState({carlist:this.state.carlist})
     }
  
+
+
     change(idx,event){
         this.state.carlist[idx].qty = event.target.value;
         this.setState({carlist:this.state.carlist})
     }
+
+
 
 
     render(){
