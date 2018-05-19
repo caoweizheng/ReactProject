@@ -25,6 +25,15 @@ class RegisterComponent extends React.Component{
 
 	register(){
 
+		if(this.state.phone == '' || this.state.pass == ''){
+			this.setState({info:'用户名或密码不能为空!!'})
+			document.querySelector('.information').style.display = 'block'	     
+			setTimeout(function(){
+				document.querySelector('.information').style.display = 'none';
+
+			},500)
+			return;
+		}
 
 		http.post('checkUser',{phone:this.state.phone}).then((res) => {
 			console.log(res)

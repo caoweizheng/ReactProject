@@ -29,6 +29,10 @@ class NickNameComponent extends React.Component{
 		this.setState({nick:e.target.value})
 	}
 
+	componentDidMount(){
+		this.setState({nick:this.props.nickname})
+	}
+
 	render(){
 		return(<div className="nickWall" style={nickBg}>
 			<div className="nickTitle">
@@ -37,7 +41,7 @@ class NickNameComponent extends React.Component{
 				<span onClick={this.finishNick.bind(this)}>完成</span>
 			</div>
 			<div className="nickIn">
-				<input placeholder="还没有填写昵称" value={this.state.nick} onChange={this.change.bind(this)}/>
+				<input placeholder='请输入昵称' value={this.state.nick} onChange={this.change.bind(this)}/>
 			</div>
 		</div>)
 	}
@@ -452,7 +456,7 @@ class SettingComponent extends React.Component{
 			gender = <GenderComponent cGender={this.hideGender.bind(this)} />
 		}
 		if(this.state.isNick){
-			nick = <NickNameComponent cNick={this.hideNick.bind(this)} />
+			nick = <NickNameComponent nickname={this.state.nick} cNick={this.hideNick.bind(this)} />
 		}
 		if(this.state.isAddress){
 			address = <AddressComponent addCom={this.state.username} cAddress={this.hideAddress.bind(this)}/>

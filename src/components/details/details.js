@@ -3,11 +3,17 @@ import React from 'react'
 import '../../css/details.scss'
 import http from '../../utils/httpClient.js'
 
+let color = {
+    color:'red'
+}
 
 class DetailsComponent extends React.Component{
 
     state = {
-        goodsData:[]
+        goodsData:[],
+        isLove:false,
+        proId:'',
+        username:''
     }
 
     componentDidMount(){
@@ -18,11 +24,53 @@ class DetailsComponent extends React.Component{
         http.post('detilsPro',{proId:pId}).then((res) => {
             this.state.goodsData.push(res.data.data[0])
             console.log(res)
-            this.setState({})
+            this.setState({proId:pId})
 
             // console.log(this.state.goodsData)
-                     
-        })       
+            // 判断当前商品是否是已经收藏
+            http.get('loginState').then((res) => {
+                if(res.data.state){
+                    let username = res.data.data.phone;
+                    this.setState({username:username})
+                    console.log(username)
+                         
+                    http.post('getUser',{
+                        phone:username
+                    }).then((res) => {
+                        let goods = eval(res.data.data[0].collection);
+                        console.log(goods)
+
+                        for(let key in goods){
+
+                            if(key == this.state.proId){
+                                this.setState({isLove:true})
+                                     
+                            }
+                            
+                        }
+                                  
+                    })
+
+                    // 添加到浏览记录
+
+                    let update ={
+                        type:'browser',
+                        proId:this.state.proId
+                    }
+                         
+                    http.post('updateUser',{
+                        phone:username,
+                        update:JSON.stringify(update),
+                        browserHistory:JSON.stringify(this.state.goodsData[0])
+                    }).then((res) => {
+                        if(res.data.state){  
+                        }      
+                    })      
+                    
+                }
+            })   
+
+        })   
     }
 
     routerBack(){
@@ -30,8 +78,11 @@ class DetailsComponent extends React.Component{
     }
 
     addCar(){
+
+ 
         let proId = this.state.goodsData[0]._id;
         http.post('getCar',{
+            username:this.state.username,
             pId:proId
         }).then((res) => {
             console.log(res)
@@ -40,14 +91,17 @@ class DetailsComponent extends React.Component{
                  let count = parseInt(res.data.data[0].qty) + 1
                  console.log(count)
                       
-                      
-                http.post('updateCar',{proId:proId,qty:count}).then((res)=> {
+                http.post('updateCar',{username:this.state.username,proId:proId,qty:count}).then((res)=> {
                     console.log('updatacar',res)
-                         
+                    document.querySelector('.information').style.display = 'block'       
+                    setTimeout(function(){
+                        document.querySelector('.information').style.display = 'none';
+                    },100)     
                 })
             }else{
 
                 http.post('addCar',{
+                    username:this.state.username,
                     pId:this.state.goodsData[0]._id,
                     proName:this.state.goodsData[0].proName,
                     imgPath:this.state.goodsData[0].imgPath,
@@ -55,12 +109,47 @@ class DetailsComponent extends React.Component{
                     jxPrice:this.state.goodsData[0].jxPrice
                 }).then((res) => {
                     console.log('addCar',res)
-                         
+                    document.querySelector('.information').style.display = 'block'       
+                    setTimeout(function(){
+                        document.querySelector('.information').style.display = 'none';
+                    },100)         
                 })
             }
                  
         })
 
+
+    }
+    onLove(){
+        this.setState({isLove:!this.state.isLove})
+
+            // 添加收藏
+            http.get('loginState').then((res) => {
+                if(res.data.state){
+                    let username = res.data.data.phone;
+                    let update ={
+                        type:'collection',
+                        proId:this.state.proId
+                    }
+                    http.post('updateUser',{
+                        phone:username,
+                        update:JSON.stringify(update),
+                        collection:JSON.stringify(this.state.goodsData[0])
+                    }).then((res) => {
+                        if(res.data.state){
+
+                        }      
+                    })
+                }
+            })
+        if(this.state.isLove){
+        }else{
+            //取消收藏
+        }
+    }
+
+    toCar(){
+        this.props.router.push({pathname:'car'})
     }
 
     render(){
@@ -111,12 +200,12 @@ class DetailsComponent extends React.Component{
                             <i className="iconfont">&#xe612;</i>
                             <p>侍酒师</p>
                         </li>
-                        <li>
-                            <i className="iconfont">&#xe690;</i>
+                        <li onClick={this.onLove.bind(this,)}>
+                            <i style={this.state.isLove ? color : null} className="iconfont">&#xe690;</i>
                             <p>收藏</p>
                         </li>
-                        <li>
-                            <a href="http://localhost:7583/#/car"><i className="iconfont">&#xe64e;</i>
+                        <li onClick={this.toCar.bind(this)}>
+                            <a><i className="iconfont">&#xe64e;</i>
                             <p>购物车</p></a>
                         </li>
                     </ul>
@@ -125,6 +214,10 @@ class DetailsComponent extends React.Component{
                     <button className="btn1" onClick={this.addCar.bind(this)}>加入购物车</button>
 
                     <button className="btn2">立即购买</button>
+                </div>
+
+                <div className="information">
+                    <span>添加成功</span>
                 </div>
             </div>
         )

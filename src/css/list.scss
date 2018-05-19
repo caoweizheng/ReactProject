@@ -113,6 +113,8 @@
 
 .goodslistRow{
     margin-top: 1.066667rem;
+    flex:1;
+    overflow-x: hidden;
     ul{
         display:flex;
         width: 100%;
@@ -128,6 +130,8 @@
 
 .goodslistCol{
     margin-top: 1.066667rem;
+    flex:1;
+    overflow-x: hidden;
     ul{
         display:flex;
         width: 100%;

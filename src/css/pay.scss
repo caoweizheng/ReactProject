@@ -1,0 +1,17 @@
+.total{
+	font-size:0.5rem;
+	display:flex;
+	justify-content: space-between;
+	span:nth-of-type(2){
+		color:red;
+	}
+}
+.pay{
+	display:block;
+	text-align:center;
+	width: 100%;
+	background:green;
+	color:#fff;
+	font-weight:600;
+
+}

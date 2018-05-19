@@ -1,0 +1,59 @@
+.porderTitle{
+    height: 0.533333rem;
+    background-color: #e8e8e8;
+    display:flex;
+    padding: 0 0.133333rem;
+    border-bottom:0.013333rem solid #ccc;
+    i{
+    	width: 0.533333rem;
+    	line-height: 0.533333rem;
+    	font-size:0.18rem;
+    }
+    p{
+
+    	line-height: 0.533333rem;
+    	font-size:0.206667rem;
+    	padding-right: 0.266667rem;
+    	flex:1;
+    	text-align:center;
+    }
+}
+
+.orderCon{
+    background:url("https://morder.jiuxian.com/ordernew/wap/images/addBor.png") repeat-x bottom ;
+    background-color:#fff;
+    padding: 0.266667rem 0.266667rem;
+    margin-bottom: 0.133333rem;
+    p{
+        font-size:0.173333rem;
+        width: 100%;
+        display:flex;
+        justify-content: space-between;
+        span:nth-of-type(3){
+            height: 0.366667rem;
+            line-height: 0.666667rem;
+        }
+    }
+}
+.orderBottom{
+    width: 100%;
+    display:flex;
+    justify-content: space-between; 
+    padding-left: 0.133333rem;
+    height: 0.533333rem;
+    line-height: 0.533333rem;
+    background:#fff;
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    p{
+        height: 100%;
+        font-size:0.173333rem;
+    }
+    p:nth-of-type(2){
+        background:red;
+        color:#fff;
+        text-align:center;
+        padding: 0 0.133333rem;
+    }
+}

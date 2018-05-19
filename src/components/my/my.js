@@ -153,6 +153,14 @@ class MyComponent extends React.Component{
 		this.props.router.push({pathname:'order'})
 	}
 
+	toOther(idx){
+		if(idx == 0){
+			this.props.router.push({pathname:'collection'})
+		}else if(idx == 1){
+			this.props.router.push({pathname:'history'})
+		}
+	}
+
 	render(){
 		let temp = null;
 
@@ -198,7 +206,7 @@ class MyComponent extends React.Component{
 						<ul>
 							{
 								this.state.myWall.map((item,idx) => {
-									return (<li key={idx}>
+									return (<li key={idx} onClick={this.toOther.bind(this,idx)}>
 											<i style={item.color} className="iconfont" dangerouslySetInnerHTML ={{__html:item.img}}></i>
 											<span>{item.txt}</span>
 										</li>)
