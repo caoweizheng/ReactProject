@@ -1,15 +1,14 @@
 import React from 'react'
 import '../../css/pushOrder.scss'
-import '../../css/order.scss'
 
 import http from '../../utils/httpClient.js'
 let bg = {
-	background:'#e9e9ea61',
+	background:'#eee',
 	height:'100%'
 }
 
 let noMargin = {
-	marginTop:'40px'
+	marginTop:'0.533333rem'
 }
 let pTop = {
 	width:'100%',
@@ -21,12 +20,12 @@ let pTop = {
 
 let orderlist = {
 	background:'#fff',
-	marginBottom:'10px'
+	marginBottom:'0.133333rem'
 }
 
 let price = {
 	color:'red',
-	fontSize:'18px',
+	fontSize:'0.24rem',
 	fontWeight:600
 }
 
@@ -125,7 +124,8 @@ class PushOrderComponent extends React.Component{
 			consignee:'',
 			contact:'',
 			local:''
-		}
+		},
+		isAddOrder:true
 		
 
 
@@ -160,7 +160,9 @@ class PushOrderComponent extends React.Component{
 	                    this.setState({orders:res.data.data,username:username})
 
 	                    this.state.orders.map((item) => {
-
+	                    	console.log(666)
+	                    	     
+	                    	
 	                        this.state.totalPrice += item.qty * item.actPrice
 	                            
 	                    })
@@ -185,6 +187,8 @@ class PushOrderComponent extends React.Component{
 	        })
 		}else{
 			// this.props.params.orderid
+			this.state.isAddOrder = false;
+			let orderID = this.props.params.orderid;
 	        http.get('loginState').then((res) => {
 	            if(res.data.state){
 	                let username = res.data.data.phone;
@@ -195,17 +199,28 @@ class PushOrderComponent extends React.Component{
 					}).then((res) => {
 						console.log(res.data.data[0].order)
 	  
-						if(res.data.data[0].order.length>0){
-							res.data.data[0].order.map((item) => {	
-
-								if(this.props.params.orderid == item.orderID){
-									this.state.orders.push(item) 
-								 	this.state.totalPrice += item.qty * item.actPrice    	
-       
-								}						     
-							})
-							this.setState({})		
-
+						res.data.data[0].order[orderID].data.map((item) => {	
+							console.log('item',item)
+							     
+						    this.state.totalPrice += item.actPrice * item.qty;
+							this.state.orders.push(item)   
+							console.log(666)
+							         
+						})
+							this.setState({})		 
+						     
+					})
+					http.post('getUser',{
+						phone:username
+					}).then((res) => {
+						if(res.data.data[0].address.length>0){
+							let item = JSON.parse(res.data.data[0].address[0]);
+							this.setState({addItem:{
+								consignee:item.consignee,
+								contact:item.contact,
+								local:item.local
+							}})
+							     
 						}     
 						     
 					})
@@ -232,28 +247,37 @@ class PushOrderComponent extends React.Component{
 		this.setState({isAdd:true})
 	}
 
+	// 提交订单(生成订单)   
 	toPay(){
-
-		// 提交订单   
+		let orderID = Date.now();
 		let update = {
 			type:'order',
-			orderType:1
+			orderType:1,
+			orderID : orderID
 		}
-		console.log(JSON.stringify(this.state.orders),'==================')
-		     
-		http.post('updateUser',{
-			phone:this.state.username,
-			update:JSON.stringify(update),
-			order:JSON.stringify(this.state.orders)
-		}).then((res) => {
-			console.log(res)
-			     
-		})
-		// 删除购物车
-		// 跳转支付中心
+		if(this.state.isAddOrder){
+			console.log(JSON.stringify(this.state.orders),'==================')
 
+			http.post('updateUser',{
+				phone:this.state.username,
+				update:JSON.stringify(update),
+				order:JSON.stringify(this.state.orders)
+			}).then((res) => {
 
-		this.props.router.push({pathname:'pay'})
+				this.state.orders.map((item) => {	
+
+					// 删除购物车
+					http.post('delCar',{username:this.state.username,proId:item._id}).then((res)=>{
+						this.props.router.push({pathname:'pay/'+update.orderID})
+					})						     
+				})
+				 
+			})
+			
+		}else{
+			// this.props.router.push({pathname:'pay/'+this.props.params.orderid})
+		}
+
 	}
 	
 	render(){
@@ -271,7 +295,7 @@ class PushOrderComponent extends React.Component{
 				<p><span>收货人:{this.state.addItem.consignee}</span><span>{this.state.addItem.contact}</span><span><i className="iconfont">&#xe636;</i></span></p>
 				<p>{this.state.addItem.local}</p>
 				</div>
-				<div className="orderList">
+				<div className="porderList">
 				<ul>
 
 					{
@@ -292,7 +316,7 @@ class PushOrderComponent extends React.Component{
 				</ul>
 			</div>
 			<div className="orderBottom">
-				<p>应付金额: <span style={price}>￥ {this.state.totalPrice}</span></p>
+				<p>应付金额: <span style={price}>￥ {this.state.totalPrice}.00</span></p>
 				<p onClick={this.toPay.bind(this)}>提交订单</p>
 			</div>
 			{address}

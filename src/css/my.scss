@@ -94,13 +94,13 @@
     ul{
         display:flex;
         flex-wrap:wrap;
-        height: 150px;
         li{
             display:flex;
             flex-direction:column;
             text-align:center;
             align-self:center;
-            width: 25%;  
+            width: 25%;
+            padding: 0.153333rem; 
             i{
                 font-size:0.333333rem;
                 margin-bottom: 0.103333rem;

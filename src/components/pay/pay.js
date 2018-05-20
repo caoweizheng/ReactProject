@@ -9,7 +9,7 @@ let pTop = {
 class PayComponent extends React.Component{
 
 	state = {
-		// orders:[],
+		orderID:'',
 		orderId:[],
 		username:'',
 		totalPrice:0
@@ -17,11 +17,13 @@ class PayComponent extends React.Component{
 
 	toOreder(){
 
-
-		this.props.router.push({pathname:'pushOrder'})
+		this.props.router.push({pathname:'pushOrder/'+this.state.orderID})
 	}
 
 	componentDidMount(){
+		let orderID = this.props.params.orderid
+		this.setState({orderID:orderID})
+		     
         http.get('loginState').then((res) => {
             if(res.data.state){
                 let username = res.data.data.phone;
@@ -32,8 +34,8 @@ class PayComponent extends React.Component{
 				}).then((res) => {
 					console.log(res.data.data[0].order)
   
-					if(res.data.data[0].order.length>0){
-						res.data.data[0].order.map((item) => {	
+					if(res.data.data[0].order[orderID] != undefined){
+						res.data.data[0].order[orderID].data.map((item) => {	
 						    this.state.totalPrice += item.actPrice * item.qty;
 							this.state.orderId.push(item._id)   
 							console.log(666)
@@ -50,10 +52,11 @@ class PayComponent extends React.Component{
 	pay(){
 		let update = {
 			type:'order',
-			orderType:2
+			orderType:2,
+			orderID:this.state.orderID
 		}
 		console.log(this.state.username)
-		console.log(this.state.orderId)
+		console.log(this.state.orderID)
 		     
 		http.post('updateUser',{
 			phone:this.state.username,

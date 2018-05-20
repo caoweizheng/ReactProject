@@ -174,6 +174,15 @@ class CarComponent extends React.Component{
         
     }
 
+    initQty(idx,pId){
+        if(this.state.carlist[idx].qty == ''){
+            this.state.carlist[idx].qty = 0
+            this.setState({carlist:this.state.carlist})
+            this.add(idx,pId)
+        }
+             
+    }
+
 
     render(){
         return (
@@ -197,7 +206,7 @@ class CarComponent extends React.Component{
                                         <p>
                                             <button className="sub" onClick={this.sub.bind(this,idx,item.pId)}>-</button>
 
-                                            <input type="number" className="num" value={this.state.carlist[idx].qty} onInput={this.changeQty.bind(this,idx)} onChange={this.change.bind(this,idx,item.pId)} />
+                                            <input type="number" className="num" value={this.state.carlist[idx].qty} onBlur={this.initQty.bind(this,idx,item.pId)} onInput={this.changeQty.bind(this,idx)} onChange={this.change.bind(this,idx,item.pId)} />
                                             <button className="add" onClick={this.add.bind(this,idx,item.pId)}>+</button>
                                             <span className="del" onClick={this.del.bind(this,idx,item._id)}>删除</span>
                                         </p>

@@ -15,6 +15,7 @@ import ListComponent from '../components/list/list'
 import SettingComponent from '../components/my/setting'
 import OrderComponent from '../components/order/order'
 import PushOrderComponent from '../components/order/pushOrder'
+import WuliuComponent from '../components/order/wuliu'
 import CollectionComponent from '../components/collection/collection'
 import HistoryComponent from '../components/history/history'
 import PayComponent from '../components/pay/pay'
@@ -132,10 +133,11 @@ let routes = (
 		<Route path="details" component={DetailsComponent}/>
 		<Route path="/setting" component={SettingComponent}/>
 		<Route path="/order" component={OrderComponent}/>
+		<Route path="/wuliu(/:orderid)" component={WuliuComponent}/>
 		<Route path="/pushOrder(/:orderid)" component={PushOrderComponent}/>
 		<Route path="/collection" component={CollectionComponent}/>
 		<Route path="/history" component={HistoryComponent}/>
-		<Route path="/pay" component={PayComponent}/>
+		<Route path="/pay(/:orderid)" component={PayComponent}/>
 		
 
 	</Route>

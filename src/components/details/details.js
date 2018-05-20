@@ -152,6 +152,12 @@ class DetailsComponent extends React.Component{
         this.props.router.push({pathname:'car'})
     }
 
+    buyNow(){
+        this.addCar()
+        this.props.router.push({pathname:'pushOrder'})
+        
+    }
+
     render(){
         return (
             <div className="det">
@@ -213,7 +219,7 @@ class DetailsComponent extends React.Component{
 
                     <button className="btn1" onClick={this.addCar.bind(this)}>加入购物车</button>
 
-                    <button className="btn2">立即购买</button>
+                    <button className="btn2" onClick={this.buyNow.bind(this)}>立即购买</button>
                 </div>
 
                 <div className="information">

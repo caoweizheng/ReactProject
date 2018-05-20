@@ -9,13 +9,13 @@ let bg = {
 	flexDirection:'column'
 }
 let span = {
-	fontSize:'12px',
+	fontSize:'0.16rem',
 	color:'red',
 	float:'right',
-	marginRight:'10px'
+	marginRight:'0.133333rem'
 }
 let noMargin = {
-	marginTop:'40px'
+	marginTop:'0.533333rem'
 }
 let pTop = {
 	width:'100%',
