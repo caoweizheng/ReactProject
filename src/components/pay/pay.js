@@ -23,7 +23,10 @@ class PayComponent extends React.Component{
 	componentDidMount(){
 		let orderID = this.props.params.orderid
 		this.setState({orderID:orderID})
-		     
+		this.props.router.setRouteLeaveHook(
+            this.props.route,
+            this.routerWillLeave
+        )     
         http.get('loginState').then((res) => {
             if(res.data.state){
                 let username = res.data.data.phone;
@@ -48,7 +51,9 @@ class PayComponent extends React.Component{
             }
         })
 	}
-
+    routerWillLeave(){
+        return '确认要离开？'
+    }
 	pay(){
 		let update = {
 			type:'order',

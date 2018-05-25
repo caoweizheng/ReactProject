@@ -38,6 +38,7 @@
                 padding: 0.28rem 0.166667rem 0 0.533333rem;
                 border-bottom: 0.013333rem solid #E8E8E8;
                 height: 1.566667rem;
+                position:relative;
                 img{
                     float: left;
                     display: inline-block;
@@ -79,7 +80,7 @@
     .footer_z{
         height: 0.666667rem;
         background: #fff;
-        z-index: 10000;
+        z-index: 1000;
         position: fixed;
         bottom: 0;
         left: 0;
@@ -107,4 +108,32 @@
             }
         }
     }
+}
+.emptyCar{
+    position:absolute;
+    left: 0;
+    top: 0.533333rem;
+    bottom: 0;
+    right: 0;
+    background:#fff;
+    z-index:1001;
+    display:none;
+    span{
+        display:flex;
+        width: 100%;
+        padding: 0.133333rem;
+        justify-content:center;
+        font-size:0.386667rem;
+        color:blue;
+        text-decoration:underline;
+    }
+}
+
+.checkbox{
+    position:absolute;
+    display:inline-block;
+    width: 0.266667rem;
+    height: 0.266667rem;
+    left: 0.206667rem;
+    top: 0.566667rem;
 }

@@ -21,7 +21,7 @@ export default {
             axios({
                 method:'get',
                 url:filterUrl(_url),
-                data:_params,
+                params:_params,
                 headers:{
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'token':window.localStorage.getItem('user')

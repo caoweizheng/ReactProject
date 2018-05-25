@@ -14,6 +14,8 @@ class CarComponent extends React.Component{
     state = {
         carlist: [],
         totalPrice: 0,
+        checks:[],
+        autoCheck:false
     }
 
     componentDidMount(){
@@ -24,11 +26,16 @@ class CarComponent extends React.Component{
 
                 http.post('getCar',{username:username}).then((res) => {
                     console.log(res)
+                    if(res.data.data.length <= 0){
+                        document.querySelector('.emptyCar').style.display = 'block'
+                    }else{
+                        document.querySelector('.emptyCar').style.display = 'none'
 
+                    }
                     this.setState({carlist:res.data.data})
 
-                    this.state.carlist.map((item) => {
-
+                    this.state.carlist.map((item,idx) => {
+                        this.state.checks.push(false)
                         this.state.totalPrice += item.qty * item.actPrice
                             
                     })
@@ -182,6 +189,28 @@ class CarComponent extends React.Component{
         }
              
     }
+    toHome(){
+        this.props.router.push({pathname:'home'})
+    }
+    check(idx){
+        this.state.checks[idx] = !this.state.checks[idx]
+        this.setState({checks:this.state.checks})
+        this.autoCheck();
+             
+    }
+    checkAll(){
+        this.state.checks.forEach((item,idx) => {
+            this.state.checks[idx] = !this.state.checks[idx]; 
+        })
+        this.autoCheck()
+    }
+
+    autoCheck(){
+        let autocheck = this.state.checks.every((item) => {
+            return item
+        })      
+        this.setState({autoCheck:autocheck})
+    }
 
 
     render(){
@@ -198,8 +227,11 @@ class CarComponent extends React.Component{
                     <ul>
                         {
                             this.state.carlist.map((item,idx) => {
+                                // <input checked={this.state.checks[idx] || false} onChange={this.check.bind(this,idx)} type="checkbox" className="checkbox"/>
+                                // <input checked={this.state.autoCheck} onChange={this.checkAll.bind(this)} type="checkbox"/>
                                 return (
                                     <li key={item._id}>
+                                    
                                         <img src={item.imgPath}/>
                                         <h4>{item.proName}</h4>
                                         <p><span>￥{item.actPrice}.00</span></p>
@@ -220,13 +252,19 @@ class CarComponent extends React.Component{
 
                 <div className="footer_z">
                     <p>
+                    
                     <span className="totalPrice"><span style={color}>合计:¥ </span> {this.state.totalPrice}.00</span>
                         <button onClick={this.toOrder.bind(this)}>去结算</button>
                     </p>
                 </div>
-                    <div className="information">
-                        <span>操作成功</span>
-                    </div>
+                <div className="information">
+                    <span>操作成功</span>
+                </div>
+                <div className="emptyCar">
+                    <span><img src="http://www.pingpang365.com/Public/Wap/Images/cart/no.png"/></span>
+                    <span onClick={this.toHome.bind(this)}>去购物!</span>
+                </div>
+
             </div>
         )
     }

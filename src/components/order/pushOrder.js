@@ -275,7 +275,7 @@ class PushOrderComponent extends React.Component{
 			})
 			
 		}else{
-			// this.props.router.push({pathname:'pay/'+this.props.params.orderid})
+			this.props.router.push({pathname:'pay/'+this.props.params.orderid})
 		}
 
 	}
